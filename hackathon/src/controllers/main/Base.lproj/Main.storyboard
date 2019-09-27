@@ -18,23 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VK Hackathon 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-Eo-FD5">
-                                <rect key="frame" x="131.5" y="442.5" width="151.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8np-XE-8o3" userLabel="Stories Collection">
+                                <rect key="frame" x="0.0" y="44" width="414" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="81a-fA-qFD"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R7R-Rj-EL3">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="O7U-KJ-bBz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Mg-Qx-lQO">
+                                <rect key="frame" x="0.0" y="214" width="414" height="673"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zAx-Eo-FD5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ICM-jD-exP"/>
-                            <constraint firstItem="zAx-Eo-FD5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="SRS-Hy-Svf"/>
+                            <constraint firstItem="7Mg-Qx-lQO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1GO-XB-Foi"/>
+                            <constraint firstItem="8np-XE-8o3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2lU-j6-QAf"/>
+                            <constraint firstItem="7Mg-Qx-lQO" firstAttribute="top" secondItem="8np-XE-8o3" secondAttribute="bottom" constant="15" id="5lf-A5-cIA"/>
+                            <constraint firstItem="7Mg-Qx-lQO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="25" id="8rt-Bj-3Qh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8np-XE-8o3" secondAttribute="trailing" id="Ydy-lQ-3Ow"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Mg-Qx-lQO" secondAttribute="trailing" id="kMM-ck-Rdt"/>
+                            <constraint firstItem="8np-XE-8o3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ukP-7I-Efn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="8np-XE-8o3" id="00i-KZ-bQw"/>
+                        <outlet property="tableView" destination="7Mg-Qx-lQO" id="rVp-Xt-Qqy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>

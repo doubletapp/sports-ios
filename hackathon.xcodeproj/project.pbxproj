@@ -18,6 +18,11 @@
 		CC23AD7D233E6DCF00362C9B /* CollectionViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD7C233E6DCF00362C9B /* CollectionViewUtils.swift */; };
 		CC23AD7F233E6DE500362C9B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD7E233E6DE500362C9B /* BaseCollectionViewCell.swift */; };
 		CC23AD81233E6E8800362C9B /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD80233E6E8800362C9B /* ColorUtils.swift */; };
+		CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD84233EA85F00362C9B /* MatchTableViewCell.swift */; };
+		CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD88233EAB8A00362C9B /* MatchTableViewCell.xib */; };
+		CC23AD8E233EB94400362C9B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */; };
+		CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */; };
+		CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		CC23AD7C233E6DCF00362C9B /* CollectionViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewUtils.swift; sourceTree = "<group>"; };
 		CC23AD7E233E6DE500362C9B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC23AD80233E6E8800362C9B /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		CC23AD84233EA85F00362C9B /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
+		CC23AD88233EAB8A00362C9B /* MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
+		CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +110,8 @@
 		CC23AD6D233E132500362C9B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CC23AD8A233EB7E800362C9B /* fonts */,
+				CC23AD82233EA7BE00362C9B /* cells */,
 				CC23AD74233E654200362C9B /* controllers */,
 				CC23AD6E233E132B00362C9B /* utils */,
 			);
@@ -133,6 +145,33 @@
 				CC23AD5F233E10F700362C9B /* Main.storyboard */,
 			);
 			path = main;
+			sourceTree = "<group>";
+		};
+		CC23AD82233EA7BE00362C9B /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC23AD83233EA83E00362C9B /* match_cell */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		CC23AD83233EA83E00362C9B /* match_cell */ = {
+			isa = PBXGroup;
+			children = (
+				CC23AD84233EA85F00362C9B /* MatchTableViewCell.swift */,
+				CC23AD88233EAB8A00362C9B /* MatchTableViewCell.xib */,
+			);
+			path = match_cell;
+			sourceTree = "<group>";
+		};
+		CC23AD8A233EB7E800362C9B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */,
+				CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */,
+				CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +236,11 @@
 			files = (
 				CC23AD66233E10F800362C9B /* LaunchScreen.storyboard in Resources */,
 				CC23AD63233E10F800362C9B /* Assets.xcassets in Resources */,
+				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
 				CC23AD61233E10F700362C9B /* Main.storyboard in Resources */,
+				CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */,
+				CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */,
+				CC23AD8E233EB94400362C9B /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +296,7 @@
 				CC23AD7D233E6DCF00362C9B /* CollectionViewUtils.swift in Sources */,
 				CC23AD81233E6E8800362C9B /* ColorUtils.swift in Sources */,
 				CC23AD7B233E6DB600362C9B /* BaseTableViewCell.swift in Sources */,
+				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
 				CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */,
