@@ -37,8 +37,8 @@ struct MatchModel {
             startDateTime: MatchModel.startDatetimeFormatter.date(from: json["start_datetime"] as! String)!,
             homeTeam: TeamModel.model(from: json["home_team"] as! [String: Any]),
             awayTeam: TeamModel.model(from: json["away_team"] as! [String: Any]),
-            status: MatchStatus(rawValue: json["status"] as! String) ?? .notStarted,
-            minute: json["minute"] as! String,
+            status: (json["status"] as? String).map { MatchStatus(rawValue: $0) ?? .notStarted } ?? .notStarted,
+            minute: json["minute"] as? String ?? "",
             events: (json["events"] as? [[String: Any]])?.map { EventModel.model(from: $0) } ?? []
         )
     }

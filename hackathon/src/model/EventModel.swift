@@ -21,13 +21,15 @@ struct EventModel {
     let type: EventType
     let realTime: Date
     let matchTime: Int
+    let videoTime: Int?
 
     static func model(from json: [String: Any]) -> EventModel {
         return EventModel(
             id: json["id"] as! Int, 
             type: EventType(rawValue: json["type"] as! String) ?? .none,
             realTime: EventModel.timeFormatter.date(from: json["real_time"] as! String)!,
-            matchTime: json["match_time"] as! Int
+            matchTime: json["match_time"] as! Int,
+            videoTime: json["video_time"] as? Int
         )
     }
 
