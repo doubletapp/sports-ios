@@ -55,6 +55,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-GO-VZM">
                                         <rect key="frame" x="47" y="45" width="50" height="50"/>
                                         <state key="normal" image="gallery_icon"/>
+                                        <connections>
+                                            <action selector="galleryAction" destination="OFH-K5-THV" eventType="touchUpInside" id="Evn-MU-CsX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Keg-OS-Jbc">
                                         <rect key="frame" x="320" y="45" width="50" height="50"/>

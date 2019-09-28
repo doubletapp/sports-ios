@@ -43,12 +43,24 @@ class CameraViewController: UIViewController {
             isRecording = true
             recordButton.isSelected = true
             switchCameraButton.isHidden = true
+            galleryButton.isHidden = true
         } else {
             stillVideoOutput?.stopRecording()
             isRecording = false
             recordButton.isSelected = false
             switchCameraButton.isHidden = false
+            galleryButton.isHidden = false
         }
+    }
+
+    @IBAction func galleryAction() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.mediaTypes = [ "public.movie" ]
+        pickerController.sourceType = .savedPhotosAlbum
+
+        present(pickerController, animated: true)
     }
 
     func backCameraInput() -> AVCaptureDeviceInput? {
@@ -96,8 +108,9 @@ class CameraViewController: UIViewController {
 
         if let input = input, session!.canAddInput(input) {
             session!.addInput(input)
-            stillVideoOutput = AVCaptureMovieFileOutput()
 
+            stillVideoOutput = AVCaptureMovieFileOutput()
+            
             if session!.canAddOutput(stillVideoOutput!) {
                 session!.addOutput(stillVideoOutput!)
                 stillVideoOutput!.setOutputSettings(
@@ -118,6 +131,10 @@ class CameraViewController: UIViewController {
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent(UUID().uuidString)
     }
+    
+    func sendVideo(from url: URL) {
+        print("send video from", url)
+    }
 }
 
 extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
@@ -127,8 +144,24 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
         didFinishRecordingTo outputFileURL: URL,
         from connections: [AVCaptureConnection], error: Error?
     ) {
-        // save recorded video
-        print("Video recorded to", outputFileURL.absoluteString)
+        sendVideo(from: outputFileURL)
     }
 
+}
+
+extension CameraViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    public func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        if let mediaUrl = info[.mediaURL] as? URL {
+            sendVideo(from: mediaUrl)
+        }
+        picker.dismiss(animated: true)
+    }
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
 }
