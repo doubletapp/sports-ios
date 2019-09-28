@@ -18,6 +18,7 @@ class MatchScreenViewController: UIViewController {
         }
     }
 
+    var matchModel: MatchModel!
     var cellDescriptions: [TableViewCellDescription] = []
 
     override func viewDidLoad() {
@@ -26,7 +27,7 @@ class MatchScreenViewController: UIViewController {
         cellDescriptions = [
             TableViewCellDescription(
                 cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: nil)
+                object: ProfileMatchCellObject(expanded: false, match: matchModel, delegate: nil)
             ),
             TableViewCellDescription(
                 cellType: HeaderCell.self,
@@ -86,8 +87,13 @@ class MatchScreenViewController: UIViewController {
         tableView.contentInset = contentInset
     }
 
-    @IBAction func backAction() {
+    @IBAction func cameraAction() {
+        let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateInitialViewController()!
+        present(cameraVC, animated: true)
+    }
 
+    @IBAction func backAction() {
+        dismiss(animated: true, completion: nil)
     }
 }
 

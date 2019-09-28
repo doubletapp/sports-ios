@@ -43,6 +43,11 @@
 		CC23AD9C233EE38F00362C9B /* HighlightPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */; };
 		CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9D233EE45100362C9B /* HighlightModel.swift */; };
 		CC23ADA0233EE4AC00362C9B /* FragmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */; };
+		CC23ADA3233F7B6E00362C9B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADA2233F7B6E00362C9B /* GradientView.swift */; };
+		CC23ADA7233FAC0F00362C9B /* MainTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC23ADA6233FAC0F00362C9B /* MainTableHeaderView.xib */; };
+		CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADA9233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift */; };
+		CC23ADAE233FADD900362C9B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADAD233FADD900362C9B /* BaseView.swift */; };
+		CC23ADB0233FAE3B00362C9B /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */; };
 		F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */; };
 		F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466913AF5EE929D2A0B7691 /* CameraViewController.swift */; };
 		F46696416DB726F047E18186 /* VideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46696226D4E926143E7AB72 /* VideosCell.swift */; };
@@ -93,6 +98,11 @@
 		CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightPreviewCell.swift; sourceTree = "<group>"; };
 		CC23AD9D233EE45100362C9B /* HighlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightModel.swift; sourceTree = "<group>"; };
 		CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentModel.swift; sourceTree = "<group>"; };
+		CC23ADA2233F7B6E00362C9B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		CC23ADA6233FAC0F00362C9B /* MainTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableHeaderView.xib; sourceTree = "<group>"; };
+		CC23ADA9233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTableHeaderVeiw copy.swift"; sourceTree = "<group>"; };
+		CC23ADAD233FADD900362C9B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		F466909A04D3400688D3B313 /* ChooseEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseEventCell.swift; sourceTree = "<group>"; };
 		F466913AF5EE929D2A0B7691 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 		CC23AD6D233E132500362C9B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CC23ADA1233F7B5900362C9B /* views */,
 				CC23AD91233EC77900362C9B /* model */,
 				CC23AD8A233EB7E800362C9B /* fonts */,
 				CC23AD82233EA7BE00362C9B /* cells */,
@@ -230,6 +241,8 @@
 		CC23AD77233E65B400362C9B /* main */ = {
 			isa = PBXGroup;
 			children = (
+				CC23ADA9233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift */,
+				CC23ADA8233FAD0600362C9B /* header */,
 				CC23AD75233E656300362C9B /* MainViewController.swift */,
 				CC23AD5F233E10F700362C9B /* Main.storyboard */,
 			);
@@ -289,6 +302,24 @@
 				CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */,
 			);
 			path = highlight_preview_cell;
+			sourceTree = "<group>";
+		};
+		CC23ADA1233F7B5900362C9B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CC23ADA2233F7B6E00362C9B /* GradientView.swift */,
+				CC23ADAD233FADD900362C9B /* BaseView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CC23ADA8233FAD0600362C9B /* header */ = {
+			isa = PBXGroup;
+			children = (
+				CC23ADA6233FAC0F00362C9B /* MainTableHeaderView.xib */,
+				CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */,
+			);
+			path = header;
 			sourceTree = "<group>";
 		};
 		F466923A10A6D08DC25ACBCD /* videos_cell */ = {
@@ -422,6 +453,7 @@
 				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
 				CC23AD9A233EE37D00362C9B /* HighlightPreviewCell.xib in Resources */,
 				365D1667233EFA8D00EBCCB2 /* VideosCell.xib in Resources */,
+				CC23ADA7233FAC0F00362C9B /* MainTableHeaderView.xib in Resources */,
 				CC23AD61233E10F700362C9B /* Main.storyboard in Resources */,
 				365D1665233EF31500EBCCB2 /* EventCell.xib in Resources */,
 				365D166C233F985300EBCCB2 /* SendVideo.storyboard in Resources */,
@@ -484,13 +516,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC23ADA3233F7B6E00362C9B /* GradientView.swift in Sources */,
 				CC23AD7D233E6DCF00362C9B /* CollectionViewUtils.swift in Sources */,
 				CC23AD81233E6E8800362C9B /* ColorUtils.swift in Sources */,
 				CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */,
 				CC23AD7B233E6DB600362C9B /* BaseTableViewCell.swift in Sources */,
+				CC23ADAE233FADD900362C9B /* BaseView.swift in Sources */,
 				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
+				CC23ADB0233FAE3B00362C9B /* MainTableHeaderView.swift in Sources */,
 				365D1658233EC0F400EBCCB2 /* ViewUtils.swift in Sources */,
 				CC23AD95233EC82000362C9B /* TeamModel.swift in Sources */,
 				CC23AD97233EC96900362C9B /* EventModel.swift in Sources */,
@@ -509,6 +544,7 @@
 				F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */,
 				F466966806D8C597E462C038 /* SendVideoViewController.swift in Sources */,
 				F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */,
+				CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F4S954HGMF;
+				DEVELOPMENT_TEAM = 8L7988R5NG;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -676,7 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F4S954HGMF;
+				DEVELOPMENT_TEAM = 8L7988R5NG;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

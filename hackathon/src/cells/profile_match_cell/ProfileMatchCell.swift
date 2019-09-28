@@ -9,6 +9,7 @@ protocol ProfileMatchCellDelegate: class {
 
 struct ProfileMatchCellObject {
     let expanded: Bool
+    let match: MatchModel
     weak var delegate: ProfileMatchCellDelegate?
 }
 
@@ -17,28 +18,11 @@ class ProfileMatchCell: UITableViewCell {
     let disposeBag = DisposeBag()
     weak var delegate: ProfileMatchCellDelegate?
 
-    @IBOutlet weak var firstTeamImageView: UIImageView! {
-        didSet {
-            firstTeamImageView.rx
-                .observe(CGRect.self, "bounds")
-                .subscribe(onNext: { [weak self] _ in
-                    guard let sself = self else { return }
-                    sself.firstTeamImageView.cornerRadius = sself.firstTeamImageView.bounds.width / 2
-                })
-                .disposed(by: disposeBag)
-        }
-    }
-    @IBOutlet weak var secondTeamImageView: UIImageView! {
-        didSet {
-            secondTeamImageView.rx
-                .observe(CGRect.self, "bounds")
-                .subscribe(onNext: { [weak self] _ in
-                    guard let sself = self else { return }
-                    sself.secondTeamImageView.cornerRadius = sself.secondTeamImageView.bounds.width / 2
-                })
-                .disposed(by: disposeBag)
-        }
-    }
+    @IBOutlet weak var firstTeamImageView: UIImageView!
+    @IBOutlet weak var secondTeamImageView: UIImageView!
+    @IBOutlet weak var firstTeamName: UILabel!
+    @IBOutlet weak var secondTeamName: UILabel!
+    @IBOutlet weak var matchScoreLabel: UILabel!
     @IBOutlet weak var buttonContainer: UIView!
     @IBOutlet weak var collectionContainer: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -85,8 +69,18 @@ extension ProfileMatchCell: BaseTableViewCell {
 
     func configure(for object: Any?) {
         guard let cellObject = object as? ProfileMatchCellObject else { return }
-
+        let match = cellObject.match
         delegate = cellObject.delegate
+
+        if let firstTeamLogoUrl = URL(string: match.homeTeam.logo) {
+            firstTeamImageView.af_setImage(withURL: firstTeamLogoUrl)
+        }
+        firstTeamName.text = match.homeTeam.name
+        if let secondTeamLogoUrl = URL(string: match.awayTeam.logo) {
+            secondTeamImageView.af_setImage(withURL: secondTeamLogoUrl)
+        }
+        secondTeamName.text = match.awayTeam.name
+        matchScoreLabel.text = "\(match.homeTeam.score) - \(match.awayTeam.score)"
 
         let expanded = cellObject.expanded
 

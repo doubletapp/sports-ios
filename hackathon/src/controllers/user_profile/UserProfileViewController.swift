@@ -18,43 +18,23 @@ class UserProfileViewController: UIViewController {
 
     var expandedCellIndex: Int?
     var cellDescriptions: [TableViewCellDescription] = []
+    var matchModels: [MatchModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cellDescriptions = [
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-            TableViewCellDescription(
-                cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
-            ),
-        ]
-        
+        for match in matchModels {
+            cellDescriptions.append(
+                TableViewCellDescription(
+                    cellType: ProfileMatchCell.self,
+                    object: ProfileMatchCellObject(expanded: false, match: match, delegate: self)))
+        }
         
         tableView.reloadData()
     }
 
     @IBAction func backAction() {
-
+        dismiss(animated: true)
     }
 
     func updateData() {
@@ -62,12 +42,11 @@ class UserProfileViewController: UIViewController {
             if index == expandedCellIndex {
                 return TableViewCellDescription(
                     cellType: ProfileMatchCell.self,
-                    object: ProfileMatchCellObject(expanded: true, delegate: self)
-                )
+                    object: ProfileMatchCellObject(expanded: true, match: matchModels[0], delegate: self))
             }
             return TableViewCellDescription(
                 cellType: ProfileMatchCell.self,
-                object: ProfileMatchCellObject(expanded: false, delegate: self)
+                object: ProfileMatchCellObject(expanded: false, match: matchModels[1], delegate: self)
             )
         }
 

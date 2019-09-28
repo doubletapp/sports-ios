@@ -45,7 +45,7 @@
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="42"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </imageView>
@@ -98,7 +98,7 @@
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="42"/>
+                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </imageView>
@@ -233,7 +233,10 @@
                 <outlet property="collectionContainer" destination="Hb4-ED-LgI" id="GJ0-dU-7Jw"/>
                 <outlet property="collectionView" destination="nxD-UV-Vnu" id="xqu-hH-AxP"/>
                 <outlet property="firstTeamImageView" destination="Aqs-uj-vka" id="jRY-y0-4Dh"/>
+                <outlet property="firstTeamName" destination="6QY-79-Eh6" id="s1R-ny-AQm"/>
+                <outlet property="matchScoreLabel" destination="hm1-Tr-9qt" id="SZn-ne-R3I"/>
                 <outlet property="secondTeamImageView" destination="mY0-oS-IDK" id="WHB-gu-BNi"/>
+                <outlet property="secondTeamName" destination="WJL-3M-4Xc" id="ddi-uB-2bR"/>
             </connections>
             <point key="canvasLocation" x="150" y="321.76339285714283"/>
         </tableViewCell>
