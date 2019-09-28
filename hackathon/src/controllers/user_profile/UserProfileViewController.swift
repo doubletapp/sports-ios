@@ -8,6 +8,10 @@ class UserProfileViewController: UIViewController {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(ProfileMatchCell.self)
+            tableView.layer.shadowColor = UIColor.black.cgColor
+            tableView.layer.shadowOpacity = 0.08
+            tableView.layer.shadowRadius = 20.0
+            tableView.layer.shadowOffset = .zero
         }
     }
 

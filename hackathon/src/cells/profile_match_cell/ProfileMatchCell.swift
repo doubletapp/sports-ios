@@ -17,7 +17,6 @@ class ProfileMatchCell: UITableViewCell {
     let disposeBag = DisposeBag()
     weak var delegate: ProfileMatchCellDelegate?
 
-
     @IBOutlet weak var firstTeamImageView: UIImageView! {
         didSet {
             firstTeamImageView.rx
