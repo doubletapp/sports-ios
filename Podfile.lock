@@ -12,9 +12,14 @@ PODS:
   - RxAlamofire/Core (5.0.0):
     - Alamofire (~> 4.8)
     - RxSwift (~> 5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
   - RxRealm (1.0.0):
     - RealmSwift (~> 3.14)
     - RxSwift (~> 5.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - Swinject (2.6.2)
 
@@ -23,6 +28,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.5)
   - RealmSwift (~> 3.15.0)
   - RxAlamofire (~> 5.0.0)
+  - RxCocoa
   - RxRealm (~> 1.0.0)
   - RxSwift (~> 5.0.0)
   - Swinject (~> 2.6.0)
@@ -34,7 +40,9 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxAlamofire
+    - RxCocoa
     - RxRealm
+    - RxRelay
     - RxSwift
     - Swinject
 
@@ -44,10 +52,12 @@ SPEC CHECKSUMS:
   Realm: 9b834e1be6062f544805252c812348872dc5d4ed
   RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
   RxAlamofire: e7875a012aff55345672d0f70a2a9cd6aeb0f211
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRealm: 1e81dcfca1fb50c3e9b3e1f8102bc875c5156a2e
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
 
-PODFILE CHECKSUM: bcfb8613a84408edc11ae1c294f7ba6ef37a9eb8
+PODFILE CHECKSUM: f8c3790f3d91674dd52641fb95ccc4790e47a66a
 
 COCOAPODS: 1.7.5
