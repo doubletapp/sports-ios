@@ -32,6 +32,9 @@
                                             <constraint firstAttribute="width" constant="60" id="O8W-nH-T7c"/>
                                         </constraints>
                                         <state key="normal" image="close_icon"/>
+                                        <connections>
+                                            <action selector="closeAction" destination="OFH-K5-THV" eventType="touchUpInside" id="Xkf-lK-l2x"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

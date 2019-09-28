@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class MatchScreenViewController: UIViewController {
+class MatchScreenViewController: UIViewController, CloseScreenDelegate {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -88,7 +88,8 @@ class MatchScreenViewController: UIViewController {
     }
 
     @IBAction func cameraAction() {
-        let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateInitialViewController()!
+        let cameraVC = UIStoryboard(name: "Camera", bundle: nil).instantiateInitialViewController() as! CameraViewController
+        cameraVC.closeDelegate = self
         present(cameraVC, animated: true)
     }
 

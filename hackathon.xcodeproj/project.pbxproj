@@ -18,6 +18,8 @@
 		365D1665233EF31500EBCCB2 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D1664233EF31500EBCCB2 /* EventCell.xib */; };
 		365D1667233EFA8D00EBCCB2 /* VideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D1666233EFA8D00EBCCB2 /* VideosCell.xib */; };
 		365D1669233F503400EBCCB2 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D1668233F503400EBCCB2 /* Camera.storyboard */; };
+		365D166C233F985300EBCCB2 /* SendVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D166B233F985300EBCCB2 /* SendVideo.storyboard */; };
+		36F6E356233FE29400809D47 /* ChooseEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F6E355233FE29400809D47 /* ChooseEventCell.xib */; };
 		BCB5A35C7023DE743BDC6634 /* Pods_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD97E1819DB616A2DA51AF /* Pods_hackathon.framework */; };
 		CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD5B233E10F700362C9B /* AppDelegate.swift */; };
 		CC23AD61233E10F700362C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD5F233E10F700362C9B /* Main.storyboard */; };
@@ -52,7 +54,9 @@
 		F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */; };
 		F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466913AF5EE929D2A0B7691 /* CameraViewController.swift */; };
 		F46696416DB726F047E18186 /* VideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46696226D4E926143E7AB72 /* VideosCell.swift */; };
+		F466966806D8C597E462C038 /* SendVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46696765662CE675923FC82 /* SendVideoViewController.swift */; };
 		F46697FF465EF82253130D85 /* SmallVideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */; };
+		F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466909A04D3400688D3B313 /* ChooseEventCell.swift */; };
 		F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669326EF07411EB3FA424B /* HeaderCell.swift */; };
 		F4669DAE69E377B9B5F3C491 /* MatchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +75,8 @@
 		365D1664233EF31500EBCCB2 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		365D1666233EFA8D00EBCCB2 /* VideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideosCell.xib; sourceTree = "<group>"; };
 		365D1668233F503400EBCCB2 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		365D166B233F985300EBCCB2 /* SendVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendVideo.storyboard; sourceTree = "<group>"; };
+		36F6E355233FE29400809D47 /* ChooseEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEventCell.xib; sourceTree = "<group>"; };
 		CC23AD58233E10F700362C9B /* hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC23AD5B233E10F700362C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC23AD60233E10F700362C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,9 +110,11 @@
 		CC23ADB4233FC31F00362C9B /* Highlight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Highlight.storyboard; sourceTree = "<group>"; };
 		CC23ADB6233FDD2800362C9B /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		F466909A04D3400688D3B313 /* ChooseEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseEventCell.swift; sourceTree = "<group>"; };
 		F466913AF5EE929D2A0B7691 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F4669326EF07411EB3FA424B /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		F46696226D4E926143E7AB72 /* VideosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosCell.swift; sourceTree = "<group>"; };
+		F46696765662CE675923FC82 /* SendVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendVideoViewController.swift; sourceTree = "<group>"; };
 		F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScreenViewController.swift; sourceTree = "<group>"; };
 		F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoCollectionCell.swift; sourceTree = "<group>"; };
 		F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMatchCell.swift; sourceTree = "<group>"; };
@@ -140,6 +148,15 @@
 				365D1664233EF31500EBCCB2 /* EventCell.xib */,
 			);
 			path = event_cell;
+			sourceTree = "<group>";
+		};
+		365D166A233F984500EBCCB2 /* send_video */ = {
+			isa = PBXGroup;
+			children = (
+				365D166B233F985300EBCCB2 /* SendVideo.storyboard */,
+				F46696765662CE675923FC82 /* SendVideoViewController.swift */,
+			);
+			path = send_video;
 			sourceTree = "<group>";
 		};
 		3777AF9614B3F9BED4570947 /* Frameworks */ = {
@@ -219,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				CC23ADB1233FC2B400362C9B /* highlight_player */,
+				365D166A233F984500EBCCB2 /* send_video */,
 				365D1652233EBF0600EBCCB2 /* user_profile */,
 				CC23AD77233E65B400362C9B /* main */,
 				F46699B2FDA26573C540F118 /* match_screen */,
@@ -248,6 +266,7 @@
 				F46693C256F88411607C5D83 /* small_video_cell */,
 				F4669BB97D5432ADC5D67F70 /* header_cell */,
 				F466923A10A6D08DC25ACBCD /* videos_cell */,
+				F466969EC4B2B272B9B6DF4C /* choose_event_cell */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -356,6 +375,15 @@
 			path = profile_match_cell;
 			sourceTree = "<group>";
 		};
+		F466969EC4B2B272B9B6DF4C /* choose_event_cell */ = {
+			isa = PBXGroup;
+			children = (
+				F466909A04D3400688D3B313 /* ChooseEventCell.swift */,
+				36F6E355233FE29400809D47 /* ChooseEventCell.xib */,
+			);
+			path = choose_event_cell;
+			sourceTree = "<group>";
+		};
 		F46699B2FDA26573C540F118 /* match_screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +465,7 @@
 				365D165A233EC49E00EBCCB2 /* ProfileMatchCell.xib in Resources */,
 				365D1669233F503400EBCCB2 /* Camera.storyboard in Resources */,
 				CC23AD66233E10F800362C9B /* LaunchScreen.storyboard in Resources */,
+				36F6E356233FE29400809D47 /* ChooseEventCell.xib in Resources */,
 				CC23AD63233E10F800362C9B /* Assets.xcassets in Resources */,
 				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
 				CC23AD9A233EE37D00362C9B /* HighlightPreviewCell.xib in Resources */,
@@ -444,6 +473,7 @@
 				CC23ADA7233FAC0F00362C9B /* MainTableHeaderView.xib in Resources */,
 				CC23AD61233E10F700362C9B /* Main.storyboard in Resources */,
 				365D1665233EF31500EBCCB2 /* EventCell.xib in Resources */,
+				365D166C233F985300EBCCB2 /* SendVideo.storyboard in Resources */,
 				365D165C233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib in Resources */,
 				CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */,
 				365D165E233EEE2400EBCCB2 /* Match.storyboard in Resources */,
@@ -531,6 +561,8 @@
 				F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */,
 				F46696416DB726F047E18186 /* VideosCell.swift in Sources */,
 				F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */,
+				F466966806D8C597E462C038 /* SendVideoViewController.swift in Sources */,
+				F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */,
 				CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */,
 				CC23ADB3233FC2FA00362C9B /* HighlightViewController.swift in Sources */,
 			);
@@ -680,7 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -700,7 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
