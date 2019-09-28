@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
         tableView.register(MatchTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
         loadData()
     }
     

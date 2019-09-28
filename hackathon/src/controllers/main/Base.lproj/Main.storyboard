@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-F7-dz2" userLabel="Top Bar Background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8np-XE-8o3" userLabel="Stories Collection">
                                 <rect key="frame" x="0.0" y="44" width="414" height="227"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,18 +47,22 @@
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Mg-Qx-lQO">
                                 <rect key="frame" x="0.0" y="271" width="414" height="616"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7Mg-Qx-lQO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1GO-XB-Foi"/>
                             <constraint firstItem="8np-XE-8o3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2lU-j6-QAf"/>
                             <constraint firstItem="7Mg-Qx-lQO" firstAttribute="top" secondItem="8np-XE-8o3" secondAttribute="bottom" id="5lf-A5-cIA"/>
                             <constraint firstItem="7Mg-Qx-lQO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="25" id="8rt-Bj-3Qh"/>
+                            <constraint firstItem="N9A-F7-dz2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NL3-h1-T0M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8np-XE-8o3" secondAttribute="trailing" id="Ydy-lQ-3Ow"/>
+                            <constraint firstItem="N9A-F7-dz2" firstAttribute="bottom" secondItem="8np-XE-8o3" secondAttribute="top" id="hiw-eq-iPg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Mg-Qx-lQO" secondAttribute="trailing" id="kMM-ck-Rdt"/>
                             <constraint firstItem="8np-XE-8o3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ukP-7I-Efn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N9A-F7-dz2" secondAttribute="trailing" id="xUQ-ib-zrg"/>
+                            <constraint firstItem="N9A-F7-dz2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zmg-t5-jQW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

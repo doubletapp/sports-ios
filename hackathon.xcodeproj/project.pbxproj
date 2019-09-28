@@ -26,6 +26,10 @@
 		CC23AD93233EC7A700362C9B /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD92233EC7A700362C9B /* MatchModel.swift */; };
 		CC23AD95233EC82000362C9B /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD94233EC82000362C9B /* TeamModel.swift */; };
 		CC23AD97233EC96900362C9B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD96233EC96900362C9B /* EventModel.swift */; };
+		CC23AD9A233EE37D00362C9B /* HighlightPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD99233EE37D00362C9B /* HighlightPreviewCell.xib */; };
+		CC23AD9C233EE38F00362C9B /* HighlightPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */; };
+		CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9D233EE45100362C9B /* HighlightModel.swift */; };
+		CC23ADA0233EE4AC00362C9B /* FragmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		CC23AD92233EC7A700362C9B /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		CC23AD94233EC82000362C9B /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
 		CC23AD96233EC96900362C9B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		CC23AD99233EE37D00362C9B /* HighlightPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightPreviewCell.xib; sourceTree = "<group>"; };
+		CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightPreviewCell.swift; sourceTree = "<group>"; };
+		CC23AD9D233EE45100362C9B /* HighlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightModel.swift; sourceTree = "<group>"; };
+		CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentModel.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +165,7 @@
 		CC23AD82233EA7BE00362C9B /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				CC23AD98233EE33700362C9B /* highlight_preview_cell */,
 				CC23AD83233EA83E00362C9B /* match_cell */,
 			);
 			path = cells;
@@ -187,8 +196,19 @@
 				CC23AD92233EC7A700362C9B /* MatchModel.swift */,
 				CC23AD94233EC82000362C9B /* TeamModel.swift */,
 				CC23AD96233EC96900362C9B /* EventModel.swift */,
+				CC23AD9D233EE45100362C9B /* HighlightModel.swift */,
+				CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		CC23AD98233EE33700362C9B /* highlight_preview_cell */ = {
+			isa = PBXGroup;
+			children = (
+				CC23AD99233EE37D00362C9B /* HighlightPreviewCell.xib */,
+				CC23AD9B233EE38F00362C9B /* HighlightPreviewCell.swift */,
+			);
+			path = highlight_preview_cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +274,7 @@
 				CC23AD66233E10F800362C9B /* LaunchScreen.storyboard in Resources */,
 				CC23AD63233E10F800362C9B /* Assets.xcassets in Resources */,
 				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
+				CC23AD9A233EE37D00362C9B /* HighlightPreviewCell.xib in Resources */,
 				CC23AD61233E10F700362C9B /* Main.storyboard in Resources */,
 				CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */,
 				CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */,
@@ -312,6 +333,7 @@
 			files = (
 				CC23AD7D233E6DCF00362C9B /* CollectionViewUtils.swift in Sources */,
 				CC23AD81233E6E8800362C9B /* ColorUtils.swift in Sources */,
+				CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */,
 				CC23AD7B233E6DB600362C9B /* BaseTableViewCell.swift in Sources */,
 				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
@@ -320,7 +342,9 @@
 				CC23AD97233EC96900362C9B /* EventModel.swift in Sources */,
 				CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */,
 				CC23AD93233EC7A700362C9B /* MatchModel.swift in Sources */,
+				CC23ADA0233EE4AC00362C9B /* FragmentModel.swift in Sources */,
 				CC23AD7F233E6DE500362C9B /* BaseCollectionViewCell.swift in Sources */,
+				CC23AD9C233EE38F00362C9B /* HighlightPreviewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
