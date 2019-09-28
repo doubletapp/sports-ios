@@ -46,6 +46,9 @@
 		CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADA9233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift */; };
 		CC23ADAE233FADD900362C9B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADAD233FADD900362C9B /* BaseView.swift */; };
 		CC23ADB0233FAE3B00362C9B /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */; };
+		CC23ADB3233FC2FA00362C9B /* HighlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADB2233FC2FA00362C9B /* HighlightViewController.swift */; };
+		CC23ADB5233FC31F00362C9B /* Highlight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC23ADB4233FC31F00362C9B /* Highlight.storyboard */; };
+		CC23ADB7233FDD2800362C9B /* HighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23ADB6233FDD2800362C9B /* HighlightView.swift */; };
 		F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */; };
 		F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466913AF5EE929D2A0B7691 /* CameraViewController.swift */; };
 		F46696416DB726F047E18186 /* VideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46696226D4E926143E7AB72 /* VideosCell.swift */; };
@@ -97,6 +100,9 @@
 		CC23ADA9233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTableHeaderVeiw copy.swift"; sourceTree = "<group>"; };
 		CC23ADAD233FADD900362C9B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
+		CC23ADB2233FC2FA00362C9B /* HighlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightViewController.swift; sourceTree = "<group>"; };
+		CC23ADB4233FC31F00362C9B /* Highlight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Highlight.storyboard; sourceTree = "<group>"; };
+		CC23ADB6233FDD2800362C9B /* HighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightView.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		F466913AF5EE929D2A0B7691 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F4669326EF07411EB3FA424B /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 		CC23AD74233E654200362C9B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC23ADB1233FC2B400362C9B /* highlight_player */,
 				365D1652233EBF0600EBCCB2 /* user_profile */,
 				CC23AD77233E65B400362C9B /* main */,
 				F46699B2FDA26573C540F118 /* match_screen */,
@@ -301,6 +308,16 @@
 				CC23ADAF233FAE3B00362C9B /* MainTableHeaderView.swift */,
 			);
 			path = header;
+			sourceTree = "<group>";
+		};
+		CC23ADB1233FC2B400362C9B /* highlight_player */ = {
+			isa = PBXGroup;
+			children = (
+				CC23ADB2233FC2FA00362C9B /* HighlightViewController.swift */,
+				CC23ADB4233FC31F00362C9B /* Highlight.storyboard */,
+				CC23ADB6233FDD2800362C9B /* HighlightView.swift */,
+			);
+			path = highlight_player;
 			sourceTree = "<group>";
 		};
 		F466923A10A6D08DC25ACBCD /* videos_cell */ = {
@@ -430,6 +447,7 @@
 				365D165C233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib in Resources */,
 				CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */,
 				365D165E233EEE2400EBCCB2 /* Match.storyboard in Resources */,
+				CC23ADB5233FC31F00362C9B /* Highlight.storyboard in Resources */,
 				365D1660233EF25400EBCCB2 /* HeaderCell.xib in Resources */,
 				365D1656233EBF3B00EBCCB2 /* UserProfile.storyboard in Resources */,
 				CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */,
@@ -497,6 +515,7 @@
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
 				CC23ADB0233FAE3B00362C9B /* MainTableHeaderView.swift in Sources */,
 				365D1658233EC0F400EBCCB2 /* ViewUtils.swift in Sources */,
+				CC23ADB7233FDD2800362C9B /* HighlightView.swift in Sources */,
 				CC23AD95233EC82000362C9B /* TeamModel.swift in Sources */,
 				CC23AD97233EC96900362C9B /* EventModel.swift in Sources */,
 				CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */,
@@ -513,6 +532,7 @@
 				F46696416DB726F047E18186 /* VideosCell.swift in Sources */,
 				F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */,
 				CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */,
+				CC23ADB3233FC2FA00362C9B /* HighlightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
