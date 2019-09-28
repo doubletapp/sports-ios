@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		365D1654233EBF2100EBCCB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D1653233EBF2100EBCCB2 /* UserProfileViewController.swift */; };
+		365D1656233EBF3B00EBCCB2 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D1655233EBF3B00EBCCB2 /* UserProfile.storyboard */; };
+		365D1658233EC0F400EBCCB2 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D1657233EC0F400EBCCB2 /* ViewUtils.swift */; };
+		365D165A233EC49E00EBCCB2 /* ProfileMatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D1659233EC49E00EBCCB2 /* ProfileMatchCell.xib */; };
+		365D165C233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D165B233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib */; };
 		BCB5A35C7023DE743BDC6634 /* Pods_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD97E1819DB616A2DA51AF /* Pods_hackathon.framework */; };
 		CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD5B233E10F700362C9B /* AppDelegate.swift */; };
 		CC23AD61233E10F700362C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD5F233E10F700362C9B /* Main.storyboard */; };
@@ -23,11 +28,18 @@
 		CC23AD8E233EB94400362C9B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */; };
 		CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */; };
 		CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */; };
+		F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */; };
+		F46697FF465EF82253130D85 /* SmallVideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18BD97E1819DB616A2DA51AF /* Pods_hackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB744DDD28DE4A9D553F72B /* Pods-hackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.release.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.release.xcconfig"; sourceTree = "<group>"; };
+		365D1653233EBF2100EBCCB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		365D1655233EBF3B00EBCCB2 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		365D1657233EC0F400EBCCB2 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		365D1659233EC49E00EBCCB2 /* ProfileMatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMatchCell.xib; sourceTree = "<group>"; };
+		365D165B233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoCollectionCell.xib; sourceTree = "<group>"; };
 		CC23AD58233E10F700362C9B /* hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC23AD5B233E10F700362C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC23AD60233E10F700362C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +58,8 @@
 		CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoCollectionCell.swift; sourceTree = "<group>"; };
+		F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMatchCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		365D1652233EBF0600EBCCB2 /* user_profile */ = {
+			isa = PBXGroup;
+			children = (
+				365D1653233EBF2100EBCCB2 /* UserProfileViewController.swift */,
+				365D1655233EBF3B00EBCCB2 /* UserProfile.storyboard */,
+			);
+			path = user_profile;
+			sourceTree = "<group>";
+		};
 		3777AF9614B3F9BED4570947 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +149,7 @@
 				CC23AD7C233E6DCF00362C9B /* CollectionViewUtils.swift */,
 				CC23AD7E233E6DE500362C9B /* BaseCollectionViewCell.swift */,
 				CC23AD80233E6E8800362C9B /* ColorUtils.swift */,
+				365D1657233EC0F400EBCCB2 /* ViewUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -133,6 +157,7 @@
 		CC23AD74233E654200362C9B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				365D1652233EBF0600EBCCB2 /* user_profile */,
 				CC23AD77233E65B400362C9B /* main */,
 			);
 			path = controllers;
@@ -151,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				CC23AD83233EA83E00362C9B /* match_cell */,
+				F466956B41259778F627F560 /* profile_match_cell */,
+				F46693C256F88411607C5D83 /* small_video_cell */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -172,6 +199,24 @@
 				CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		F46693C256F88411607C5D83 /* small_video_cell */ = {
+			isa = PBXGroup;
+			children = (
+				F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */,
+				365D165B233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib */,
+			);
+			path = small_video_cell;
+			sourceTree = "<group>";
+		};
+		F466956B41259778F627F560 /* profile_match_cell */ = {
+			isa = PBXGroup;
+			children = (
+				F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */,
+				365D1659233EC49E00EBCCB2 /* ProfileMatchCell.xib */,
+			);
+			path = profile_match_cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,11 +279,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365D165A233EC49E00EBCCB2 /* ProfileMatchCell.xib in Resources */,
 				CC23AD66233E10F800362C9B /* LaunchScreen.storyboard in Resources */,
 				CC23AD63233E10F800362C9B /* Assets.xcassets in Resources */,
 				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
 				CC23AD61233E10F700362C9B /* Main.storyboard in Resources */,
+				365D165C233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib in Resources */,
 				CC23AD89233EAB8A00362C9B /* MatchTableViewCell.xib in Resources */,
+				365D1656233EBF3B00EBCCB2 /* UserProfile.storyboard in Resources */,
 				CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */,
 				CC23AD8E233EB94400362C9B /* Montserrat-SemiBold.ttf in Resources */,
 			);
@@ -299,8 +347,12 @@
 				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
+				365D1658233EC0F400EBCCB2 /* ViewUtils.swift in Sources */,
 				CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */,
+				365D1654233EBF2100EBCCB2 /* UserProfileViewController.swift in Sources */,
 				CC23AD7F233E6DE500362C9B /* BaseCollectionViewCell.swift in Sources */,
+				F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */,
+				F46697FF465EF82253130D85 /* SmallVideoCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -467,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
