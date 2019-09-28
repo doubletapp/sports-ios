@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="eNV-BE-VAL">
             <objects>
-                <viewController id="OFH-K5-THV" sceneMemberID="viewController">
+                <viewController id="OFH-K5-THV" customClass="CameraViewController" customModule="hackathon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FrI-Yb-iiW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,9 +43,30 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYz-G1-zV0">
                                 <rect key="frame" x="0.0" y="756" width="414" height="140"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TO-RX-o4t">
+                                        <rect key="frame" x="174" y="37" width="66" height="66"/>
+                                        <state key="normal" image="record_icon"/>
+                                        <state key="selected" image="record_icon_active"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-GO-VZM">
+                                        <rect key="frame" x="47" y="45" width="50" height="50"/>
+                                        <state key="normal" image="gallery_icon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Keg-OS-Jbc">
+                                        <rect key="frame" x="320" y="45" width="50" height="50"/>
+                                        <state key="normal" image="switch_camera_icon"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Keg-OS-Jbc" secondAttribute="trailing" constant="44" id="BbI-UT-USk"/>
+                                    <constraint firstItem="1TO-RX-o4t" firstAttribute="centerY" secondItem="DYz-G1-zV0" secondAttribute="centerY" id="GmJ-Nb-FGE"/>
                                     <constraint firstAttribute="height" constant="140" id="Ygh-fi-I6M"/>
+                                    <constraint firstItem="Jd1-GO-VZM" firstAttribute="centerY" secondItem="DYz-G1-zV0" secondAttribute="centerY" id="hdS-H4-HCH"/>
+                                    <constraint firstItem="Jd1-GO-VZM" firstAttribute="leading" secondItem="DYz-G1-zV0" secondAttribute="leading" constant="47" id="klr-yc-9sU"/>
+                                    <constraint firstItem="Keg-OS-Jbc" firstAttribute="centerY" secondItem="DYz-G1-zV0" secondAttribute="centerY" id="mCe-Bd-lwp"/>
+                                    <constraint firstItem="1TO-RX-o4t" firstAttribute="centerX" secondItem="DYz-G1-zV0" secondAttribute="centerX" id="w6u-HZ-7di"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -64,6 +85,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6tP-kQ-S4X"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="d3q-OB-x9M" id="ss8-Ic-d3e"/>
+                        <outlet property="galleryButton" destination="Jd1-GO-VZM" id="6Zt-3w-mfD"/>
+                        <outlet property="recordButton" destination="1TO-RX-o4t" id="xhe-6j-Lrp"/>
+                        <outlet property="switchCameraButton" destination="Keg-OS-Jbc" id="OWw-NY-uRb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8c-4C-hGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,5 +99,9 @@
     </scenes>
     <resources>
         <image name="close_icon" width="30" height="30"/>
+        <image name="gallery_icon" width="50" height="50"/>
+        <image name="record_icon" width="66" height="66"/>
+        <image name="record_icon_active" width="66" height="66"/>
+        <image name="switch_camera_icon" width="50" height="50"/>
     </resources>
 </document>
