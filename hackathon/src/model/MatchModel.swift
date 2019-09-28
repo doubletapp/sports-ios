@@ -34,12 +34,19 @@ struct MatchModel {
     static func model(from json: [String: Any]) -> MatchModel {
         return MatchModel(
             id: json["id"] as! Int,
-            startDateTime: Date(), //TODO
+            startDateTime: MatchModel.startDatetimeFormatter.date(from: json["start_datetime"] as! String)!,
             homeTeam: TeamModel.model(from: json["home_team"] as! [String: Any]),
             awayTeam: TeamModel.model(from: json["away_team"] as! [String: Any]),
             status: MatchStatus(rawValue: json["status"] as! String) ?? .notStarted,
             minute: json["minute"] as! String,
-            events: [] //TODO
+            events: (json["events"] as? [[String: Any]])?.map { EventModel.model(from: $0) } ?? []
         )
     }
+
+    static let startDatetimeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd\'T\'HH:mm:ss"
+        dateFormatter.locale = Locale(identifier:"es_ES")
+        return dateFormatter
+    }()
 }
