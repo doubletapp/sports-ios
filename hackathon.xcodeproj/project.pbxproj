@@ -17,6 +17,7 @@
 		365D1663233EF30900EBCCB2 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D1662233EF30900EBCCB2 /* EventCell.swift */; };
 		365D1665233EF31500EBCCB2 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D1664233EF31500EBCCB2 /* EventCell.xib */; };
 		365D1667233EFA8D00EBCCB2 /* VideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D1666233EFA8D00EBCCB2 /* VideosCell.xib */; };
+		365D1669233F503400EBCCB2 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D1668233F503400EBCCB2 /* Camera.storyboard */; };
 		BCB5A35C7023DE743BDC6634 /* Pods_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD97E1819DB616A2DA51AF /* Pods_hackathon.framework */; };
 		CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD5B233E10F700362C9B /* AppDelegate.swift */; };
 		CC23AD61233E10F700362C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD5F233E10F700362C9B /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9D233EE45100362C9B /* HighlightModel.swift */; };
 		CC23ADA0233EE4AC00362C9B /* FragmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */; };
 		F46693F758633119B625601B /* ProfileMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */; };
+		F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466913AF5EE929D2A0B7691 /* CameraViewController.swift */; };
 		F46696416DB726F047E18186 /* VideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46696226D4E926143E7AB72 /* VideosCell.swift */; };
 		F46697FF465EF82253130D85 /* SmallVideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */; };
 		F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669326EF07411EB3FA424B /* HeaderCell.swift */; };
@@ -60,6 +62,7 @@
 		365D1662233EF30900EBCCB2 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		365D1664233EF31500EBCCB2 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		365D1666233EFA8D00EBCCB2 /* VideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideosCell.xib; sourceTree = "<group>"; };
+		365D1668233F503400EBCCB2 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		CC23AD58233E10F700362C9B /* hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC23AD5B233E10F700362C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC23AD60233E10F700362C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		CC23AD9D233EE45100362C9B /* HighlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightModel.swift; sourceTree = "<group>"; };
 		CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentModel.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		F466913AF5EE929D2A0B7691 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		F4669326EF07411EB3FA424B /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		F46696226D4E926143E7AB72 /* VideosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosCell.swift; sourceTree = "<group>"; };
 		F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScreenViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				365D1652233EBF0600EBCCB2 /* user_profile */,
 				CC23AD77233E65B400362C9B /* main */,
 				F46699B2FDA26573C540F118 /* match_screen */,
+				F46695654C925A023B4A6727 /* camera */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -283,6 +288,15 @@
 				365D165B233EDC1200EBCCB2 /* SmallVideoCollectionCell.xib */,
 			);
 			path = small_video_cell;
+			sourceTree = "<group>";
+		};
+		F46695654C925A023B4A6727 /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				F466913AF5EE929D2A0B7691 /* CameraViewController.swift */,
+				365D1668233F503400EBCCB2 /* Camera.storyboard */,
+			);
+			path = camera;
 			sourceTree = "<group>";
 		};
 		F466956B41259778F627F560 /* profile_match_cell */ = {
@@ -373,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				365D165A233EC49E00EBCCB2 /* ProfileMatchCell.xib in Resources */,
+				365D1669233F503400EBCCB2 /* Camera.storyboard in Resources */,
 				CC23AD66233E10F800362C9B /* LaunchScreen.storyboard in Resources */,
 				CC23AD63233E10F800362C9B /* Assets.xcassets in Resources */,
 				CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */,
@@ -461,6 +476,7 @@
 				F4669DAE69E377B9B5F3C491 /* MatchScreenViewController.swift in Sources */,
 				F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */,
 				F46696416DB726F047E18186 /* VideosCell.swift in Sources */,
+				F466948946ED0F3E64D37FF3 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +634,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sports.doubletapp.hackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -638,7 +654,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sports.doubletapp.hackathon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
