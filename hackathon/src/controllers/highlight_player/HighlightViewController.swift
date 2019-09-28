@@ -9,6 +9,13 @@ class HighlightViewController: UIViewController {
         return view as! HighlightView
     }
     
+    @IBOutlet weak var gradientView: GradientView! {
+        didSet {
+            gradientView.topColor = UIColor.black
+            gradientView.bottomColor = UIColor.black.withAlphaComponent(0.0)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,5 +26,9 @@ class HighlightViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         highlightView.player?.play()
+    }
+    
+    @IBAction func didTapClose() {
+        dismiss(animated: true)
     }
 }
