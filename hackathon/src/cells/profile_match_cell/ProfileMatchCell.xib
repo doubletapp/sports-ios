@@ -38,7 +38,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aqs-uj-vka">
                                                                         <rect key="frame" x="24.5" y="97" width="85" height="85"/>
-                                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Aqs-uj-vka" secondAttribute="height" multiplier="1:1" id="XAD-fH-aLd"/>
                                                                             <constraint firstAttribute="width" priority="750" constant="85" id="ucE-90-EAc"/>
@@ -91,7 +91,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mY0-oS-IDK">
                                                                         <rect key="frame" x="24.5" y="97" width="85" height="85"/>
-                                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="mY0-oS-IDK" secondAttribute="height" multiplier="1:1" id="Zjq-nY-04p"/>
                                                                             <constraint firstAttribute="width" priority="750" constant="85" id="lQo-Dw-7r1"/>
