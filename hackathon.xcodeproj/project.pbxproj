@@ -60,6 +60,7 @@
 		F46697FF465EF82253130D85 /* SmallVideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */; };
 		F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466909A04D3400688D3B313 /* ChooseEventCell.swift */; };
 		F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669326EF07411EB3FA424B /* HeaderCell.swift */; };
+		F4669C6F153CD6EF7A188A28 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669C8DBE8605E22D991CD7 /* PlayerModel.swift */; };
 		F4669DAE69E377B9B5F3C491 /* MatchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */; };
 		F4669DB9945E337A0DBAEE18 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466980AB256F4ECEB5AF586 /* BaseRequest.swift */; };
 		F4669F29AC9F5F5F82DC743E /* GetHighlightsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669967469167C6F1FA394C /* GetHighlightsRequest.swift */; };
@@ -126,6 +127,7 @@
 		F4669967469167C6F1FA394C /* GetHighlightsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHighlightsRequest.swift; sourceTree = "<group>"; };
 		F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScreenViewController.swift; sourceTree = "<group>"; };
 		F4669B97B3EA056DD8C568DE /* GetMatchesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMatchesRequest.swift; sourceTree = "<group>"; };
+		F4669C8DBE8605E22D991CD7 /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoCollectionCell.swift; sourceTree = "<group>"; };
 		F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMatchCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -311,6 +313,7 @@
 				CC23AD96233EC96900362C9B /* EventModel.swift */,
 				CC23AD9D233EE45100362C9B /* HighlightModel.swift */,
 				CC23AD9F233EE4AC00362C9B /* FragmentModel.swift */,
+				F4669C8DBE8605E22D991CD7 /* PlayerModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				F4669F56500831B4CA2F06C1 /* GetMatchesRequest.swift in Sources */,
 				CC23ADB3233FC2FA00362C9B /* HighlightViewController.swift in Sources */,
 				F4669F29AC9F5F5F82DC743E /* GetHighlightsRequest.swift in Sources */,
+				F4669C6F153CD6EF7A188A28 /* PlayerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,7 +744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -760,7 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8L7988R5NG;
+				DEVELOPMENT_TEAM = F4S954HGMF;
 				INFOPLIST_FILE = hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -136,7 +136,9 @@
                         <viewLayoutGuide key="safeArea" id="EB1-bK-NtF"/>
                     </view>
                     <connections>
+                        <outlet property="liveLabelView" destination="dva-xq-dii" id="JlM-NS-jZC"/>
                         <outlet property="tableView" destination="Pdd-Mv-HJE" id="bo9-Sk-81h"/>
+                        <outlet property="timeLabel" destination="59D-Bc-bLo" id="xeR-tx-7of"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbJ-kl-xk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,6 +148,6 @@
     </scenes>
     <resources>
         <image name="back_buttoon" width="26" height="18"/>
-        <image name="camera_image" width="60" height="60"/>
+        <image name="camera_image" width="80" height="80"/>
     </resources>
 </document>
