@@ -23,6 +23,9 @@
 		CC23AD8E233EB94400362C9B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */; };
 		CC23AD8F233EB94800362C9B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */; };
 		CC23AD90233EB94B00362C9B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */; };
+		CC23AD93233EC7A700362C9B /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD92233EC7A700362C9B /* MatchModel.swift */; };
+		CC23AD95233EC82000362C9B /* TeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD94233EC82000362C9B /* TeamModel.swift */; };
+		CC23AD97233EC96900362C9B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD96233EC96900362C9B /* EventModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		CC23AD8B233EB80600362C9B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		CC23AD8D233EB94300362C9B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		CC23AD92233EC7A700362C9B /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
+		CC23AD94233EC82000362C9B /* TeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamModel.swift; sourceTree = "<group>"; };
+		CC23AD96233EC96900362C9B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		EC0F25547DA0FA25875288EC /* Pods-hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackathon.debug.xcconfig"; path = "Target Support Files/Pods-hackathon/Pods-hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +116,7 @@
 		CC23AD6D233E132500362C9B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CC23AD91233EC77900362C9B /* model */,
 				CC23AD8A233EB7E800362C9B /* fonts */,
 				CC23AD82233EA7BE00362C9B /* cells */,
 				CC23AD74233E654200362C9B /* controllers */,
@@ -172,6 +179,16 @@
 				CC23AD8C233EB80E00362C9B /* Montserrat-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		CC23AD91233EC77900362C9B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CC23AD92233EC7A700362C9B /* MatchModel.swift */,
+				CC23AD94233EC82000362C9B /* TeamModel.swift */,
+				CC23AD96233EC96900362C9B /* EventModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +316,10 @@
 				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
+				CC23AD95233EC82000362C9B /* TeamModel.swift in Sources */,
+				CC23AD97233EC96900362C9B /* EventModel.swift in Sources */,
 				CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */,
+				CC23AD93233EC7A700362C9B /* MatchModel.swift in Sources */,
 				CC23AD7F233E6DE500362C9B /* BaseCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
