@@ -114,6 +114,8 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard let highlight = highlightDescriptions[indexPath.row].object as? HighlightModel else { return }
-        print("View highlight \(highlight.id)")
+        guard let highlightVC = UIStoryboard(name: "Highlight", bundle: nil).instantiateInitialViewController() else { return }
+        (highlightVC as! HighlightViewController).highlight = highlight
+        present(highlightVC, animated: true)
     }
 }
