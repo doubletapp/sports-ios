@@ -2,6 +2,21 @@ import Foundation
 import UIKit
 import AVFoundation
 
+protocol CloseScreenDelegate: class {
+    func close()
+}
+
+extension CloseScreenDelegate where Self: UIViewController {
+
+    func close() {
+        if let _ = presentedViewController {
+            DispatchQueue.main.async { [weak self] in
+                self?.dismiss(animated: true)
+            }
+        }
+    }
+}
+
 class CameraViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
@@ -9,6 +24,8 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBOutlet weak var cameraContainer: UIView!
+
+    weak var closeDelegate: CloseScreenDelegate?
 
     var session: AVCaptureSession?
     var stillVideoOutput: AVCaptureMovieFileOutput?
@@ -35,6 +52,10 @@ class CameraViewController: UIViewController {
         }
 
         isBackCamera = !isBackCamera
+    }
+
+    @IBAction func closeAction() {
+        closeDelegate?.close()
     }
 
     @IBAction func recordingAction() {
@@ -133,7 +154,12 @@ class CameraViewController: UIViewController {
     }
     
     func sendVideo(from url: URL) {
-        print("send video from", url)
+        DispatchQueue.main.async { [weak self] in
+            let vc = UIStoryboard(name: "SendVideo", bundle: nil).instantiateInitialViewController() as! SendVideoViewController
+            vc.videoUrl = url
+            vc.closeDelegate = self?.closeDelegate
+            self?.present(vc, animated: true)
+        }
     }
 }
 
