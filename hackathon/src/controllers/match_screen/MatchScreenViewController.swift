@@ -17,6 +17,8 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate {
             tableView.layer.shadowOffset = .zero
         }
     }
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var liveLabelView: UIView!
 
     var matchModel: MatchModel!
     var cellDescriptions: [TableViewCellDescription] = []
@@ -24,7 +26,69 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cellDescriptions = [
+        liveLabelView.isHidden = matchModel.minute.isEmpty
+        timeLabel.isHidden = matchModel.minute.isEmpty
+        timeLabel.text = matchModel.minute
+
+//        = [
+//            TableViewCellDescription(
+//                cellType: ProfileMatchCell.self,
+//                object: ProfileMatchCellObject(expanded: false, match: matchModel, delegate: nil)
+//            ),
+//            TableViewCellDescription(
+//                cellType: HeaderCell.self,
+//                object: HeaderCellObject(title: "Таймлайн")
+//            ),
+//            TableViewCellDescription(
+//                cellType: EventCell.self,
+//                object: EventCellObject(
+//                    time: "56'",
+//                    playerAvatar: "",
+//                    eventName: "Гол",
+//                    playerName: "Дмитров",
+//                    first: true,
+//                    last: false
+//                )
+//            ),
+//            TableViewCellDescription(
+//                cellType: VideosCell.self,
+//                object: VideosCellObject()
+//            ),
+//            TableViewCellDescription(
+//                cellType: EventCell.self,
+//                object: EventCellObject(
+//                    time: "56'",
+//                    playerAvatar: "",
+//                    eventName: "Гол",
+//                    playerName: "Дмитров",
+//                    first: false,
+//                    last: false
+//                )
+//            ),
+//            TableViewCellDescription(
+//                cellType: VideosCell.self,
+//                object: VideosCellObject()
+//            ),
+//            TableViewCellDescription(
+//                cellType: EventCell.self,
+//                object: EventCellObject(
+//                    time: "56'",
+//                    playerAvatar: "",
+//                    eventName: "Гол",
+//                    playerName: "Дмитров",
+//                    first: false,
+//                    last: true
+//                )
+//            ),
+//        ]
+
+        updateData()
+    }
+
+    func updateData() {
+        cellDescriptions = []
+
+        let headerCellDescriptions = [
             TableViewCellDescription(
                 cellType: ProfileMatchCell.self,
                 object: ProfileMatchCellObject(expanded: false, match: matchModel, delegate: nil)
@@ -33,49 +97,25 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate {
                 cellType: HeaderCell.self,
                 object: HeaderCellObject(title: "Таймлайн")
             ),
-            TableViewCellDescription(
-                cellType: EventCell.self,
-                object: EventCellObject(
-                    time: "56'", 
-                    playerAvatar: "",
-                    eventName: "Гол", 
-                    playerName: "Дмитров", 
-                    first: true,
-                    last: false
-                )
-            ),
-            TableViewCellDescription(
-                cellType: VideosCell.self,
-                object: VideosCellObject()
-            ),
-            TableViewCellDescription(
-                cellType: EventCell.self,
-                object: EventCellObject(
-                    time: "56'",
-                    playerAvatar: "",
-                    eventName: "Гол",
-                    playerName: "Дмитров",
-                    first: false,
-                    last: false
-                )
-            ),
-            TableViewCellDescription(
-                cellType: VideosCell.self,
-                object: VideosCellObject()
-            ),
-            TableViewCellDescription(
-                cellType: EventCell.self,
-                object: EventCellObject(
-                    time: "56'",
-                    playerAvatar: "",
-                    eventName: "Гол",
-                    playerName: "Дмитров",
-                    first: false,
-                    last: true
-                )
-            ),
         ]
 
+        let eventsCellDescriptions = matchModel.events.enumerated().map { el -> TableViewCellDescription  in
+            let event = el.1
+            let index = el.0
+            return TableViewCellDescription(
+                cellType: EventCell.self,
+                object: EventCellObject(
+                    event: event,
+                    first: index == 0,
+                    last: index == matchModel.events.count - 1
+                )
+            )
+        }
+
+
+        cellDescriptions.append(contentsOf: headerCellDescriptions)
+        cellDescriptions.append(contentsOf: eventsCellDescriptions)
+        
         tableView.reloadData()
     }
 
