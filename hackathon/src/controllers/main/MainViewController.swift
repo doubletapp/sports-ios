@@ -20,9 +20,23 @@ class MainViewController: UIViewController {
         collectionView.register(HighlightPreviewCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
-        loadData()
+        loadData(models: [])
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        updateData()
+    }
+
+    func updateData() {
+        GetMatchesRequest().request { [weak self] any, error in
+            if let response = any as? [String: Any] {
+                self?.loadData(models: MatchModel.models(from: response))
+            }
+        }
+    }
+
     @IBAction func didTapProfile() {
         guard let profileVC = UIStoryboard(name: "UserProfile", bundle: nil).instantiateInitialViewController() else {
             return
@@ -30,41 +44,27 @@ class MainViewController: UIViewController {
         present(profileVC, animated: true)
     }
     
-    private func loadData() {
-        let sampleMatch1 = MatchModel(
-            id: 1,
-            startDateTime: Date(),
-            homeTeam: TeamModel(
-                id: 1,
-                logo: "https://s5o.ru/storage/simple/ru/edt/54/12/90/42/ruebe59547fd7.jpeg",
-                name: "Liverpool",
-                score: 3),
-            awayTeam: TeamModel(
-                id: 2,
-                logo: "https://s5o.ru/storage/simple/ru/edt/27/36/74/46/rue42a147af8f.jpg",
-                name: "Manchester City",
-                score: 1),
-            status: MatchStatus.live,
-            minute: "46'",
-            events: [])
-        matchDescriptions.append(TableViewCellDescription(cellType: MatchTableViewCell.self, object: sampleMatch1))
-        matchDescriptions.append(TableViewCellDescription(cellType: MatchTableViewCell.self, object: sampleMatch1))
-        matchDescriptions.append(TableViewCellDescription(cellType: MatchTableViewCell.self, object: sampleMatch1))
-        matchDescriptions.append(TableViewCellDescription(cellType: MatchTableViewCell.self, object: sampleMatch1))
+    private func loadData(models: [MatchModel]) {
+        matchDescriptions = []
+
+        models.forEach { model in
+            matchDescriptions.append(TableViewCellDescription(cellType: MatchTableViewCell.self, object: model))
+        }
+        
         tableView.reloadData()
         
-        let sampleHighlight = HighlightModel(
-            id: 0,
-            videoUrl: "http://sports.ru",
-            previewUrl: "https://s5o.ru/storage/simple/ru/edt/ad/98/d9/85/rue84bafa3c0c.jpg",
-            match: sampleMatch1,
-            fragments: [],
-            events: [])
-        
-        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
-        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
-        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
-        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
+//        let sampleHighlight = HighlightModel(
+//            id: 0,
+//            videoUrl: "http://sports.ru",
+//            previewUrl: "https://s5o.ru/storage/simple/ru/edt/ad/98/d9/85/rue84bafa3c0c.jpg",
+//            match: sampleMatch1,
+//            fragments: [],
+//            events: [])
+//
+//        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
+//        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
+//        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
+//        highlightDescriptions.append(CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: sampleHighlight))
         collectionView.reloadData()
     }
 }

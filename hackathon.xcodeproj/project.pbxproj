@@ -20,6 +20,7 @@
 		365D1669233F503400EBCCB2 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D1668233F503400EBCCB2 /* Camera.storyboard */; };
 		365D166C233F985300EBCCB2 /* SendVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365D166B233F985300EBCCB2 /* SendVideo.storyboard */; };
 		36F6E356233FE29400809D47 /* ChooseEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F6E355233FE29400809D47 /* ChooseEventCell.xib */; };
+		36F6E358233FF79100809D47 /* ErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F6E357233FF79100809D47 /* ErrorUtils.swift */; };
 		BCB5A35C7023DE743BDC6634 /* Pods_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD97E1819DB616A2DA51AF /* Pods_hackathon.framework */; };
 		CC23AD5C233E10F700362C9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23AD5B233E10F700362C9B /* AppDelegate.swift */; };
 		CC23AD61233E10F700362C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC23AD5F233E10F700362C9B /* Main.storyboard */; };
@@ -56,6 +57,8 @@
 		F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466909A04D3400688D3B313 /* ChooseEventCell.swift */; };
 		F4669BE8BBF37AEB5065E67C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669326EF07411EB3FA424B /* HeaderCell.swift */; };
 		F4669DAE69E377B9B5F3C491 /* MatchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */; };
+		F4669DB9945E337A0DBAEE18 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F466980AB256F4ECEB5AF586 /* BaseRequest.swift */; };
+		F4669F56500831B4CA2F06C1 /* GetMatchesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4669B97B3EA056DD8C568DE /* GetMatchesRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,7 @@
 		365D1668233F503400EBCCB2 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		365D166B233F985300EBCCB2 /* SendVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendVideo.storyboard; sourceTree = "<group>"; };
 		36F6E355233FE29400809D47 /* ChooseEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEventCell.xib; sourceTree = "<group>"; };
+		36F6E357233FF79100809D47 /* ErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUtils.swift; sourceTree = "<group>"; };
 		CC23AD58233E10F700362C9B /* hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC23AD5B233E10F700362C9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC23AD60233E10F700362C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,7 +113,9 @@
 		F4669326EF07411EB3FA424B /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		F46696226D4E926143E7AB72 /* VideosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosCell.swift; sourceTree = "<group>"; };
 		F46696765662CE675923FC82 /* SendVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendVideoViewController.swift; sourceTree = "<group>"; };
+		F466980AB256F4ECEB5AF586 /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		F4669ACEB46C1FB3A166F02D /* MatchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScreenViewController.swift; sourceTree = "<group>"; };
+		F4669B97B3EA056DD8C568DE /* GetMatchesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMatchesRequest.swift; sourceTree = "<group>"; };
 		F4669DB3C07B8901261BFC35 /* SmallVideoCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoCollectionCell.swift; sourceTree = "<group>"; };
 		F4669E690C1BE6780AB9405F /* ProfileMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMatchCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +215,7 @@
 				CC23AD82233EA7BE00362C9B /* cells */,
 				CC23AD74233E654200362C9B /* controllers */,
 				CC23AD6E233E132B00362C9B /* utils */,
+				F4669E83AC2F8188D9E1DE91 /* api */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -222,6 +229,7 @@
 				CC23AD7E233E6DE500362C9B /* BaseCollectionViewCell.swift */,
 				CC23AD80233E6E8800362C9B /* ColorUtils.swift */,
 				365D1657233EC0F400EBCCB2 /* ViewUtils.swift */,
+				36F6E357233FF79100809D47 /* ErrorUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -385,6 +393,15 @@
 			path = header_cell;
 			sourceTree = "<group>";
 		};
+		F4669E83AC2F8188D9E1DE91 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				F466980AB256F4ECEB5AF586 /* BaseRequest.swift */,
+				F4669B97B3EA056DD8C568DE /* GetMatchesRequest.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,6 +539,7 @@
 				CC23AD9E233EE45100362C9B /* HighlightModel.swift in Sources */,
 				CC23AD7B233E6DB600362C9B /* BaseTableViewCell.swift in Sources */,
 				CC23ADAE233FADD900362C9B /* BaseView.swift in Sources */,
+				36F6E358233FF79100809D47 /* ErrorUtils.swift in Sources */,
 				CC23AD85233EA85F00362C9B /* MatchTableViewCell.swift in Sources */,
 				CC23AD76233E656300362C9B /* MainViewController.swift in Sources */,
 				CC23AD79233E6D8800362C9B /* TableViewUtils.swift in Sources */,
@@ -545,6 +563,8 @@
 				F466966806D8C597E462C038 /* SendVideoViewController.swift in Sources */,
 				F4669A0B1C999A756C506285 /* ChooseEventCell.swift in Sources */,
 				CC23ADAA233FAD0C00362C9B /* MainTableHeaderVeiw copy.swift in Sources */,
+				F4669DB9945E337A0DBAEE18 /* BaseRequest.swift in Sources */,
+				F4669F56500831B4CA2F06C1 /* GetMatchesRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
