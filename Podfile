@@ -12,6 +12,7 @@ def all_pods
     pod 'RxCocoa'
     pod 'RxAlamofire', '~> 5.0.0'
     pod 'RxRealm', '~> 1.0.0'
+    pod 'AlamofireImage', '~> 3.5'
 end
 
 target 'hackathon' do
