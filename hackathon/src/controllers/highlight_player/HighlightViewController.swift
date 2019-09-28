@@ -16,10 +16,25 @@ class HighlightViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var pushView: UIView! {
+        didSet {
+            pushView.layer.cornerRadius = 15
+        }
+    }
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var performerLabel: UILabel!
+    @IBOutlet weak var performerImage: UIImageView! {
+        didSet {
+            performerImage.layer.cornerRadius = 15
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let playerItem = AVPlayerItem(url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!)
+        let playerItem = AVPlayerItem(url: URL(string: highlight.videoUrl)!)
         highlightView.player = AVPlayer(playerItem: playerItem)
     }
     
@@ -30,5 +45,10 @@ class HighlightViewController: UIViewController {
     
     @IBAction func didTapClose() {
         dismiss(animated: true)
+    }
+    
+    func showEvent(_ event: EventModel) {
+        timeLabel.text = "\(event.matchTime)'"
+        timeLabel
     }
 }
