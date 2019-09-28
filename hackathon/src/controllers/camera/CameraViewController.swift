@@ -181,13 +181,17 @@ extension CameraViewController : UIImagePickerControllerDelegate, UINavigationCo
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
-        if let mediaUrl = info[.mediaURL] as? URL {
-            sendVideo(from: mediaUrl)
+        DispatchQueue.main.async { [weak self] in
+            if let mediaUrl = info[.mediaURL] as? URL {
+                self?.sendVideo(from: mediaUrl)
+            }
+            picker.dismiss(animated: true)
         }
-        picker.dismiss(animated: true)
     }
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
+        DispatchQueue.main.async {
+            picker.dismiss(animated: true)
+        }
     }
 }

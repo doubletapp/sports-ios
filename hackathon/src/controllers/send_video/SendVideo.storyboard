@@ -18,9 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIS-et-6Rx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="572"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIS-et-6Rx" customClass="VideoContainerView" customModule="hackathon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="592"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAG-bF-1xk" userLabel="Play Button">
+                                        <rect key="frame" x="177" y="266" width="60" height="60"/>
+                                        <state key="normal" image="play_icon"/>
+                                        <connections>
+                                            <action selector="didTapPlay" destination="b3X-wM-yAq" eventType="touchUpInside" id="c8g-JS-rKY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HAG-bF-1xk" firstAttribute="centerX" secondItem="wIS-et-6Rx" secondAttribute="centerX" id="SPt-gz-NF3"/>
+                                    <constraint firstItem="HAG-bF-1xk" firstAttribute="centerY" secondItem="wIS-et-6Rx" secondAttribute="centerY" id="tIK-CS-z1I"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzc-wZ-GO2">
                                 <rect key="frame" x="0.0" y="572" width="414" height="349"/>
@@ -94,7 +107,7 @@
                             <constraint firstItem="bzc-wZ-GO2" firstAttribute="leading" secondItem="8dk-v0-xXr" secondAttribute="leading" id="BYV-yd-oXm"/>
                             <constraint firstItem="wIS-et-6Rx" firstAttribute="top" secondItem="1lY-he-i0u" secondAttribute="top" id="F2f-F3-X9W"/>
                             <constraint firstItem="RyR-yZ-ra8" firstAttribute="top" secondItem="1lY-he-i0u" secondAttribute="top" constant="24" id="FjO-Mh-BNS"/>
-                            <constraint firstItem="bzc-wZ-GO2" firstAttribute="top" secondItem="wIS-et-6Rx" secondAttribute="bottom" id="bmp-oI-rCh"/>
+                            <constraint firstItem="bzc-wZ-GO2" firstAttribute="top" secondItem="wIS-et-6Rx" secondAttribute="bottom" constant="-20" id="bmp-oI-rCh"/>
                             <constraint firstItem="8dk-v0-xXr" firstAttribute="bottom" secondItem="6X7-vG-oeT" secondAttribute="bottom" constant="10" id="byr-Jy-Vgc"/>
                             <constraint firstItem="8dk-v0-xXr" firstAttribute="trailing" secondItem="RyR-yZ-ra8" secondAttribute="trailing" constant="7" id="dTf-7U-qlG"/>
                             <constraint firstItem="8dk-v0-xXr" firstAttribute="trailing" secondItem="bzc-wZ-GO2" secondAttribute="trailing" id="m7O-j8-ydZ"/>
@@ -104,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="headerLabel" destination="2wJ-JT-F62" id="cps-cq-Mho"/>
+                        <outlet property="playButton" destination="HAG-bF-1xk" id="I0y-o8-hNN"/>
                         <outlet property="tableView" destination="MaK-kk-1iK" id="daJ-mE-Rys"/>
                         <outlet property="tableViewHeightContraint" destination="91W-eo-fXX" id="TEV-sw-3cY"/>
                         <outlet property="videoContainer" destination="wIS-et-6Rx" id="ixZ-aw-L8k"/>
@@ -116,5 +130,6 @@
     </scenes>
     <resources>
         <image name="close_icon" width="30" height="30"/>
+        <image name="play_icon" width="60" height="60"/>
     </resources>
 </document>
