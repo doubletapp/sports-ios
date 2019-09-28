@@ -115,6 +115,9 @@
                                     <constraint firstAttribute="width" constant="80" id="OTR-cI-VHW"/>
                                 </constraints>
                                 <state key="normal" image="camera_image"/>
+                                <connections>
+                                    <action selector="cameraAction" destination="BXB-6m-dI7" eventType="touchUpInside" id="HUf-H0-Cwg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>

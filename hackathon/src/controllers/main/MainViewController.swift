@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = MainTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         
         collectionView.register(HighlightPreviewCell.self)
         collectionView.dataSource = self
@@ -23,7 +24,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didTapProfile() {
-        print("tap profile")
+        guard let profileVC = UIStoryboard(name: "UserProfile", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        present(profileVC, animated: true)
     }
     
     private func loadData() {
@@ -82,7 +86,11 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let match = matchDescriptions[indexPath.row].object as? MatchModel else { return }
-        print("View match \(match.id)")
+        guard let matchVC = UIStoryboard(name: "Match", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        (matchVC as! MatchScreenViewController).matchModel = match
+        present(matchVC, animated: true)
     }
 }
 
