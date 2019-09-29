@@ -77,8 +77,12 @@ class MainViewController: UIViewController, MatchScreenDelegate {
         }
 
         highlightDescriptions = highlights.map {
-            CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: $0)
-        }
+            [
+                CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: $0),
+                CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: $0),
+                CollectionViewCellDescription(cellType: HighlightPreviewCell.self, object: $0)
+            ]
+        }.flatMap { $0 }
 
         tableView.reloadData()
         collectionView.reloadData()

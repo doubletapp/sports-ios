@@ -26,6 +26,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="19q-Ao-fsa" userLabel="Preview Cointainer">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la0-26-ZWf" userLabel="Loader Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="512"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIP-LV-qEt" userLabel="GradientView" customClass="GradientView" customModule="hackathon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                 <subviews>
@@ -173,14 +180,22 @@
                         <constraints>
                             <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="UIP-LV-qEt" secondAttribute="trailing" id="0Za-Py-ZfK"/>
                             <constraint firstItem="KaR-5C-iwf" firstAttribute="top" secondItem="shW-UG-yTR" secondAttribute="bottom" constant="18" id="37d-Za-VvJ"/>
+                            <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="19q-Ao-fsa" secondAttribute="trailing" id="75b-hJ-kFC"/>
                             <constraint firstItem="UIP-LV-qEt" firstAttribute="leading" secondItem="ghr-BE-aAw" secondAttribute="leading" id="BfN-77-K1D"/>
+                            <constraint firstItem="19q-Ao-fsa" firstAttribute="leading" secondItem="ghr-BE-aAw" secondAttribute="leading" id="F6e-GY-lCo"/>
+                            <constraint firstAttribute="trailing" secondItem="la0-26-ZWf" secondAttribute="trailing" id="Kvp-c9-Ery"/>
+                            <constraint firstItem="la0-26-ZWf" firstAttribute="leading" secondItem="pcs-Ar-7wE" secondAttribute="leading" id="Ky1-So-IZn"/>
                             <constraint firstItem="shW-UG-yTR" firstAttribute="centerX" secondItem="ghr-BE-aAw" secondAttribute="centerX" id="QUj-fY-qAj"/>
+                            <constraint firstItem="ghr-BE-aAw" firstAttribute="bottom" secondItem="19q-Ao-fsa" secondAttribute="bottom" id="QVZ-Mh-cAg"/>
                             <constraint firstItem="NJT-s4-3eb" firstAttribute="leading" secondItem="ghr-BE-aAw" secondAttribute="leading" id="W6o-XX-pBl"/>
                             <constraint firstItem="NJT-s4-3eb" firstAttribute="bottom" secondItem="pcs-Ar-7wE" secondAttribute="bottom" id="aZj-rE-d1h"/>
                             <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="NJT-s4-3eb" secondAttribute="trailing" id="d4D-Ta-2se"/>
+                            <constraint firstItem="ghr-BE-aAw" firstAttribute="bottom" secondItem="la0-26-ZWf" secondAttribute="bottom" constant="350" id="l40-3y-ZcI"/>
                             <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="SST-yF-4Hz" secondAttribute="trailing" constant="22" id="oJI-Bl-ISO"/>
                             <constraint firstItem="SST-yF-4Hz" firstAttribute="top" secondItem="ghr-BE-aAw" secondAttribute="top" constant="22" id="q9K-vc-Imn"/>
                             <constraint firstAttribute="top" secondItem="UIP-LV-qEt" secondAttribute="top" id="rdG-zp-gaO"/>
+                            <constraint firstItem="19q-Ao-fsa" firstAttribute="top" secondItem="ghr-BE-aAw" secondAttribute="top" id="sJ1-O9-Gsv"/>
+                            <constraint firstItem="la0-26-ZWf" firstAttribute="top" secondItem="pcs-Ar-7wE" secondAttribute="top" id="zp3-T1-EFZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ghr-BE-aAw"/>
                     </view>
@@ -189,10 +204,12 @@
                         <outlet property="eventLabel" destination="Hjs-eJ-tr5" id="abc-2h-Lld"/>
                         <outlet property="firstTeamLogo" destination="cfa-kT-xye" id="bZb-z3-r8m"/>
                         <outlet property="gradientView" destination="UIP-LV-qEt" id="Thi-Rf-rbr"/>
+                        <outlet property="loaderContainer" destination="la0-26-ZWf" id="0Ge-f8-ZBl"/>
                         <outlet property="performerImage" destination="fsG-S8-7W9" id="GHS-zC-PVx"/>
                         <outlet property="performerLabel" destination="b6c-19-utU" id="SkP-vX-Pwt"/>
                         <outlet property="playButton" destination="shW-UG-yTR" id="WF7-Y5-OJ1"/>
                         <outlet property="popupHeader" destination="yYc-Iw-cOc" id="nYu-Zv-fwa"/>
+                        <outlet property="previewContainer" destination="19q-Ao-fsa" id="FMH-0T-1zE"/>
                         <outlet property="pushView" destination="AVw-56-FrM" id="cCi-lc-W7j"/>
                         <outlet property="pusherView" destination="KaR-5C-iwf" id="i3o-Go-HbU"/>
                         <outlet property="scoreLabel" destination="Uk5-5X-56O" id="an2-bp-Iew"/>

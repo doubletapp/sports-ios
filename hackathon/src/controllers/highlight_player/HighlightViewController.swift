@@ -10,6 +10,9 @@ class HighlightViewController: UIViewController {
     var highlightView: HighlightView {
         return view as! HighlightView
     }
+    var fileUrl: URL?
+    var playbackTimer: Timer?
+    var timerTicks: Int = 0
     
     @IBOutlet weak var gradientView: GradientView! {
         didSet {
@@ -49,20 +52,48 @@ class HighlightViewController: UIViewController {
     @IBOutlet weak var secondTeamLogo: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playButton: UIButton! {
+        didSet {
+            playButton.isHidden = true
+        }
+    }
+    @IBOutlet weak var loaderContainer: UIView!
+    @IBOutlet weak var previewContainer: UIImageView!
     
     var eventsDescriptions: [TableViewCellDescription] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let playerItem = AVPlayerItem(url: URL(string: highlight.videoUrl)!)
-        highlightView.player = AVPlayer(playerItem: playerItem)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(playerDidFinishPlaying),
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: nil)
+        if let imageUrl = URL(string: highlight.previewUrl) {
+            previewContainer.contentMode = .scaleAspectFill
+            previewContainer.af_setImage(withURL: imageUrl)
+        }
+        
+        loaderContainer.showLoading()
+        
+        if let url = URL(string: highlight.videoUrl) {
+            fileUrl = getNewFileURL()
+            if let fileUrl = fileUrl {
+                Downloader.load(url: url, to: fileUrl) { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.playButton.isHidden = false
+                        self?.loaderContainer.hideLoading()
+                        self?.loaderContainer.isHidden = true
+
+                        let playerItem = AVPlayerItem(url: fileUrl)
+                        self?.highlightView.player = AVPlayer(playerItem: playerItem)
+                        self?.previewContainer.isHidden = true
+                        NotificationCenter.default.addObserver(
+                            self,
+                            selector: #selector(self!.playerDidFinishPlaying),
+                            name: .AVPlayerItemDidPlayToEndTime,
+                            object: nil
+                        )
+                    }
+                }
+            }
+        }
         
         if let firstTeamUrl = URL(string: highlight.match.homeTeam.logo) {
             firstTeamLogo.af_setImage(withURL: firstTeamUrl)
@@ -98,20 +129,43 @@ class HighlightViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        if let savedFileUrl = fileUrl {
+            DispatchQueue.main.async {
+                try? FileManager.default.removeItem(at: savedFileUrl)
+            }
+        }
+    }
+    
+    private func startPlaybackTimer() {
+        playbackTimer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(playbackTimerTick),
+            userInfo: nil,
+            repeats: true
+        )
     }
     
     @IBAction func didTapClose() {
+        playbackTimer?.invalidate()
+        playbackTimer = nil
+        highlightView.player?.pause()
         dismiss(animated: true)
     }
     
     @IBAction func didTapPlay() {
         highlightView.player?.play()
+        startPlaybackTimer()
         UIView.animate(withDuration: 0.4) {
             self.playButton.layer.opacity = 0.0
         }
     }
     
     @objc func playerDidFinishPlaying() {
+        playbackTimer?.invalidate()
+        playbackTimer = nil
+        timerTicks = 0
+        
         highlightView.player?.seek(to: CMTime.zero)
         UIView.animate(withDuration: 0.4) {
             self.playButton.layer.opacity = 1.0
@@ -180,6 +234,19 @@ class HighlightViewController: UIViewController {
         bottomViewHeightConstriaint.constant = newContstant
         recognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
     }
+    
+    @objc private func playbackTimerTick() {
+        guard playbackTimer != nil else {
+            return
+        }
+        
+        timerTicks += 1
+        for event in highlight.events {
+            if event.videoTime == timerTicks {
+                showEvent(event)
+            }
+        }
+    }
 }
 
 extension HighlightViewController: UITableViewDelegate {
@@ -200,6 +267,7 @@ extension HighlightViewController: UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let event = (eventsDescriptions[indexPath.row].object as! EventCellObject).event
         highlightView.player?.seek(to: CMTime(seconds: Double(event.videoTime ?? 0), preferredTimescale: 1))
+        timerTicks = event.videoTime ?? 0
         showEvent(event)
     }
 }
