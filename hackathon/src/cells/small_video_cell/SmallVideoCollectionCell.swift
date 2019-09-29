@@ -16,6 +16,7 @@ extension SmallVideoCollectionCell: BaseCollectionViewCell {
 
     func configure(for object: Any?) {
         backgroundImage.af_cancelImageRequest()
+        backgroundImage.image = nil
         guard let cellObject = object as? SmallVideoCollectionCellObject else { return }
 
         if let url = URL(string: cellObject.video.previewUrl) {

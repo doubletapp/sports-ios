@@ -1,6 +1,10 @@
 import Foundation
 import UIKit
 
+protocol MatchScreenDelegate: class {
+    func reloadData(for match: MatchModel, callback: @escaping (MatchModel) -> Void)
+}
+
 class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSourceDelegate {
 
     @IBOutlet weak var tableView: UITableView! {
@@ -22,6 +26,7 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
 
     var matchModel: MatchModel!
     var cellDescriptions: [TableViewCellDescription] = []
+    weak var screenDelegate: MatchScreenDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +116,11 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
         var contentInset = tableView.contentInset
         contentInset.bottom = 104
         tableView.contentInset = contentInset
+
+        screenDelegate?.reloadData(for: matchModel) { [weak self] model in
+            self?.matchModel = model
+            self?.updateData()
+        }
     }
 
     @IBAction func cameraAction() {

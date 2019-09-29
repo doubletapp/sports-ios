@@ -1,14 +1,16 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MatchScreenDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
     var matchDescriptions: [TableViewCellDescription] = []
     var highlightDescriptions: [CollectionViewCellDescription] = []
-    
+
+    var matches: [MatchModel] = []
+
     override func viewDidLoad() {
         tableView.register(MatchTableViewCell.self)
         tableView.dataSource = self
@@ -26,10 +28,10 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        updateData()
+        updateData(callback: {})
     }
 
-    func updateData() {
+    func updateData(callback: @escaping () -> Void) {
 
         var matches: [MatchModel] = []
         var highlights: [HighlightModel] = []
@@ -54,6 +56,7 @@ class MainViewController: UIViewController {
 
         group.notify(queue: DispatchQueue.main) { [weak self] in
             self?.loadData(matches: matches, highlights: highlights)
+            callback()
         }
     }
 
@@ -67,6 +70,8 @@ class MainViewController: UIViewController {
     private func loadData(matches: [MatchModel], highlights: [HighlightModel]) {
         matchDescriptions = []
 
+        self.matches = matches
+
         matchDescriptions = matches.map {
             TableViewCellDescription(cellType: MatchTableViewCell.self, object: $0)
         }
@@ -77,6 +82,15 @@ class MainViewController: UIViewController {
 
         tableView.reloadData()
         collectionView.reloadData()
+    }
+
+    func reloadData(for match: MatchModel, callback: @escaping (MatchModel) -> Void) {
+        let marchId = match.id
+        updateData { [weak self] in
+            if let match = self?.matches.first(where: { $0.id == marchId }) {
+                callback(match)
+            }
+        }
     }
 }
 
@@ -97,10 +111,11 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let match = matchDescriptions[indexPath.row].object as? MatchModel else { return }
-        guard let matchVC = UIStoryboard(name: "Match", bundle: nil).instantiateInitialViewController() else {
+        guard let matchVC = UIStoryboard(name: "Match", bundle: nil).instantiateInitialViewController() as? MatchScreenViewController else {
             return
         }
-        (matchVC as! MatchScreenViewController).matchModel = match
+        matchVC.matchModel = match
+        matchVC.screenDelegate = self
         present(matchVC, animated: true)
     }
 }
