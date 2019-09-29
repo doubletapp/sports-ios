@@ -49,12 +49,21 @@ class HighlightViewController: UIViewController {
     @IBOutlet weak var secondTeamLogo: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playButton: UIButton!
+    
+    var eventsDescriptions: [TableViewCellDescription] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let playerItem = AVPlayerItem(url: URL(string: highlight.videoUrl)!)
         highlightView.player = AVPlayer(playerItem: playerItem)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerDidFinishPlaying),
+            name: .AVPlayerItemDidPlayToEndTime,
+            object: nil)
+        
         if let firstTeamUrl = URL(string: highlight.match.homeTeam.logo) {
             firstTeamLogo.af_setImage(withURL: firstTeamUrl)
         }
@@ -63,23 +72,50 @@ class HighlightViewController: UIViewController {
         }
         scoreLabel.text = "\(highlight.match.homeTeam.score) - \(highlight.match.awayTeam.score)"
         
+        var first = true
+        var counted = 0
+        for event in highlight.events {
+            counted += 1
+            eventsDescriptions.append(
+                TableViewCellDescription(
+                    cellType: EventCell.self,
+                    object: EventCellObject(
+                        event: event,
+                        first: first,
+                        last: counted == highlight.events.count)))
+            first = false
+        }
+    
+        tableView.register(EventCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        let headerView = MainTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+        headerView.titleLabel.text = "Лента событий"
+        tableView.tableHeaderView = headerView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        highlightView.player?.play()
-        let event = EventModel(id: 0, type: .offside, realTime: Date(), matchTime: 46, videoTime: 34, player: PlayerModel(lastName: "Су-тор-мин", avatar: "https://commons.wikimedia.org/wiki/File:Cel-Zen_(15)_(cropped).jpg"), videos: [])
-        showEvent(event)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.showEvent(event)
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func didTapClose() {
         dismiss(animated: true)
+    }
+    
+    @IBAction func didTapPlay() {
+        highlightView.player?.play()
+        UIView.animate(withDuration: 0.4) {
+            self.playButton.layer.opacity = 0.0
+        }
+    }
+    
+    @objc func playerDidFinishPlaying() {
+        highlightView.player?.seek(to: CMTime.zero)
+        UIView.animate(withDuration: 0.4) {
+            self.playButton.layer.opacity = 1.0
+        }
     }
     
     func showEvent(_ event: EventModel) {
@@ -115,7 +151,7 @@ class HighlightViewController: UIViewController {
             self.pushView.layer.opacity = 1.0
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             if !self.shouldHidePush {
                 self.shouldHidePush = true
                 return
@@ -153,12 +189,17 @@ extension HighlightViewController: UITableViewDelegate {
 extension HighlightViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return highlight.events.count
+        return eventsDescriptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return tableView.configureCell(with: eventsDescriptions[indexPath.row], for: indexPath)
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let event = (eventsDescriptions[indexPath.row].object as! EventCellObject).event
+        highlightView.player?.seek(to: CMTime(seconds: Double(event.videoTime ?? 0), preferredTimescale: 1))
+        showEvent(event)
+    }
 }

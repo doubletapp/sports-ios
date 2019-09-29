@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainTableHeaderView">
             <connections>
+                <outlet property="titleLabel" destination="Xxf-6m-hEf" id="Gfh-h3-7P0"/>
                 <outlet property="view" destination="tfJ-Db-bR4" id="7J5-PK-Xop"/>
             </connections>
         </placeholder>

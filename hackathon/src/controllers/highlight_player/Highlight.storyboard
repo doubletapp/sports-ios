@@ -81,7 +81,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SST-yF-4Hz" userLabel="Close Button">
-                                <rect key="frame" x="349" y="66" width="30" height="30"/>
+                                <rect key="frame" x="362" y="66" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="bHa-DH-oYy"/>
                                     <constraint firstAttribute="height" constant="30" id="vgN-Xh-EOm"/>
@@ -130,9 +130,8 @@
                                             <constraint firstItem="Uk5-5X-56O" firstAttribute="centerY" secondItem="yYc-Iw-cOc" secondAttribute="centerY" id="pLW-eg-Vub"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-hk-0Og">
-                                        <rect key="frame" x="0.0" y="125" width="414" height="143"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-hk-0Og">
+                                        <rect key="frame" x="0.0" y="130" width="414" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KaR-5C-iwf" userLabel="Pusher Line">
@@ -146,23 +145,40 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="wh3-hk-0Og" firstAttribute="leading" secondItem="NJT-s4-3eb" secondAttribute="leading" id="6uR-Xe-EpA"/>
                                     <constraint firstItem="KaR-5C-iwf" firstAttribute="top" secondItem="NJT-s4-3eb" secondAttribute="top" constant="12" id="FSo-1D-Fzg"/>
                                     <constraint firstAttribute="height" constant="260" id="JdN-PQ-EeL"/>
                                     <constraint firstAttribute="trailing" secondItem="yYc-Iw-cOc" secondAttribute="trailing" id="SDy-e7-HRM"/>
                                     <constraint firstItem="KaR-5C-iwf" firstAttribute="centerX" secondItem="NJT-s4-3eb" secondAttribute="centerX" id="YJB-wd-xid"/>
+                                    <constraint firstItem="wh3-hk-0Og" firstAttribute="top" secondItem="yYc-Iw-cOc" secondAttribute="bottom" id="bAg-U9-WJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="wh3-hk-0Og" secondAttribute="trailing" id="kIh-j1-Fe1"/>
                                     <constraint firstItem="yYc-Iw-cOc" firstAttribute="top" secondItem="NJT-s4-3eb" secondAttribute="top" id="kcw-MR-32E"/>
                                     <constraint firstItem="yYc-Iw-cOc" firstAttribute="leading" secondItem="NJT-s4-3eb" secondAttribute="leading" id="mv2-0i-nUw"/>
+                                    <constraint firstAttribute="bottom" secondItem="wh3-hk-0Og" secondAttribute="bottom" id="rhS-cz-NRu"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shW-UG-yTR" userLabel="Play Button">
+                                <rect key="frame" x="177" y="570" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="jb6-LK-71i"/>
+                                    <constraint firstAttribute="height" constant="60" id="wpg-GV-k9G"/>
+                                </constraints>
+                                <state key="normal" image="play_icon"/>
+                                <connections>
+                                    <action selector="didTapPlay" destination="VMN-pL-pNx" eventType="touchUpInside" id="orP-qF-RXf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="UIP-LV-qEt" secondAttribute="trailing" id="0Za-Py-ZfK"/>
+                            <constraint firstItem="KaR-5C-iwf" firstAttribute="top" secondItem="shW-UG-yTR" secondAttribute="bottom" constant="18" id="37d-Za-VvJ"/>
                             <constraint firstItem="UIP-LV-qEt" firstAttribute="leading" secondItem="ghr-BE-aAw" secondAttribute="leading" id="BfN-77-K1D"/>
+                            <constraint firstItem="shW-UG-yTR" firstAttribute="centerX" secondItem="ghr-BE-aAw" secondAttribute="centerX" id="QUj-fY-qAj"/>
                             <constraint firstItem="NJT-s4-3eb" firstAttribute="leading" secondItem="ghr-BE-aAw" secondAttribute="leading" id="W6o-XX-pBl"/>
                             <constraint firstItem="NJT-s4-3eb" firstAttribute="bottom" secondItem="pcs-Ar-7wE" secondAttribute="bottom" id="aZj-rE-d1h"/>
                             <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="NJT-s4-3eb" secondAttribute="trailing" id="d4D-Ta-2se"/>
-                            <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="SST-yF-4Hz" secondAttribute="trailing" constant="35" id="oJI-Bl-ISO"/>
+                            <constraint firstItem="ghr-BE-aAw" firstAttribute="trailing" secondItem="SST-yF-4Hz" secondAttribute="trailing" constant="22" id="oJI-Bl-ISO"/>
                             <constraint firstItem="SST-yF-4Hz" firstAttribute="top" secondItem="ghr-BE-aAw" secondAttribute="top" constant="22" id="q9K-vc-Imn"/>
                             <constraint firstAttribute="top" secondItem="UIP-LV-qEt" secondAttribute="top" id="rdG-zp-gaO"/>
                         </constraints>
@@ -175,11 +191,13 @@
                         <outlet property="gradientView" destination="UIP-LV-qEt" id="Thi-Rf-rbr"/>
                         <outlet property="performerImage" destination="fsG-S8-7W9" id="GHS-zC-PVx"/>
                         <outlet property="performerLabel" destination="b6c-19-utU" id="SkP-vX-Pwt"/>
+                        <outlet property="playButton" destination="shW-UG-yTR" id="WF7-Y5-OJ1"/>
                         <outlet property="popupHeader" destination="yYc-Iw-cOc" id="nYu-Zv-fwa"/>
                         <outlet property="pushView" destination="AVw-56-FrM" id="cCi-lc-W7j"/>
                         <outlet property="pusherView" destination="KaR-5C-iwf" id="i3o-Go-HbU"/>
                         <outlet property="scoreLabel" destination="Uk5-5X-56O" id="an2-bp-Iew"/>
                         <outlet property="secondTeamLogo" destination="qdf-vI-kZa" id="1yt-6b-pFR"/>
+                        <outlet property="tableView" destination="wh3-hk-0Og" id="cwQ-hU-bX1"/>
                         <outlet property="timeLabel" destination="jkg-D8-LfG" id="qhK-dw-Ajf"/>
                     </connections>
                 </viewController>
@@ -190,5 +208,6 @@
     </scenes>
     <resources>
         <image name="close_icon" width="30" height="30"/>
+        <image name="play_icon" width="60" height="60"/>
     </resources>
 </document>
