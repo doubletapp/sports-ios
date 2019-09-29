@@ -22,18 +22,22 @@ class CameraViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-//    @IBOutlet weak var galleryButton: UIButton!
+    @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBOutlet weak var cameraContainer: UIView!
 
     weak var closeDelegate: CloseScreenDelegate?
 
+    private static let albumTitle = "ZeLights"
     var session: AVCaptureSession?
     var stillVideoOutput: AVCaptureMovieFileOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
 
     var isBackCamera = true
     var isRecording = false
+    var gotGalleryAccess = false
+    var gotCameraAccess = false
+    var gotMicrophoneAccess = false
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -65,13 +69,13 @@ class CameraViewController: UIViewController {
             isRecording = true
             recordButton.isSelected = true
             switchCameraButton.isHidden = true
-//            galleryButton.isHidden = true
+            galleryButton.isHidden = true
         } else {
             stillVideoOutput?.stopRecording()
             isRecording = false
             recordButton.isSelected = false
             switchCameraButton.isHidden = false
-//            galleryButton.isHidden = false
+            galleryButton.isHidden = false
         }
     }
 
@@ -178,16 +182,212 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
 
 extension CameraViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    public func imagePickerController(
-        _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
-    ) {
-        DispatchQueue.main.async { [weak self] in
-            if let mediaUrl = info[.mediaURL] as? URL {
-                self?.sendVideo(from: mediaUrl)
-            }
-            picker.dismiss(animated: true)
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true) { [weak self] in
+                if let asset = info[.phAsset] as? PHAsset {
+                    print(asset)
+                    // TODO
+                } else if let url = info[.mediaURL] as? URL {
+                    self?.saveVideoToGallery(url)
+                }
         }
+    }
+    
+    func saveVideoToAlbum(_ url: URL) {
+        guard gotGalleryAccess == true else {
+            requestGalleryAccess { [weak self] granted in
+                if granted {
+                    self?.saveVideoToAlbum(url)
+                }
+            }
+            return
+        }
+        createAlbum { [weak self] album in
+            self?.saveVideoToAlbum(album: album, fileUrl: url)
+        }
+    }
+    
+    func saveVideoToGallery(_ url: URL) {
+        guard gotGalleryAccess == true else {
+            requestGalleryAccess { [weak self] granted in
+                if granted {
+                    self?.saveVideoToGallery(url)
+                }
+            }
+            return
+        }
+        saveVideoToAlbum(album: nil, fileUrl: url)
+    }
+    
+    private func createAlbum(completion: @escaping((_ album: PHAssetCollection?) -> Void)) {
+        let options = PHFetchOptions()
+        options.predicate = NSPredicate(format: "title = %@", CameraViewController.albumTitle)
+        let collection = PHAssetCollection.fetchAssetCollections(with: .album,
+                                                                 subtype: .any,
+                                                                 options: options)
+        if let album = collection.firstObject {
+            completion(album)
+        } else {
+            var placeholder: PHObjectPlaceholder?
+            PHPhotoLibrary.shared().performChanges({
+                let request = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(
+                    withTitle: CameraViewController.albumTitle)
+                placeholder = request.placeholderForCreatedAssetCollection
+            }, completionHandler: { (success, error) -> Void in
+                if success, let id = placeholder?.localIdentifier {
+                    let fetchResult = PHAssetCollection.fetchAssetCollections(
+                        withLocalIdentifiers: [id],
+                        options: nil
+                    )
+                    completion(fetchResult.firstObject)
+                } else {
+                    if let error = error {
+                        print(error)
+                    }
+                    completion(nil)
+                }
+            })
+        }
+    }
+    
+    private func requestGalleryAccess(completion: @escaping((_ granted: Bool) -> Void)) {
+        let authStatus = PHPhotoLibrary.authorizationStatus()
+        
+        switch authStatus {
+        case .authorized:
+            gotGalleryAccess = true
+
+            completion(true)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { status in
+                DispatchQueue.main.async { [weak self] in
+                    let authorized = (status == .authorized)
+                    self?.gotGalleryAccess = authorized
+                    completion(authorized)
+                }
+            }
+        case .denied:
+            completion(false)
+            showOpenSettingsForGallery()
+        case .restricted:
+            completion(false)
+        @unknown default:
+            completion(false)
+        }
+    }
+    
+    private func requestCameraAccess(completion: @escaping((_ granted: Bool) -> Void)) {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch authStatus {
+        case .authorized:
+            gotCameraAccess = true
+            completion(true)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                DispatchQueue.main.async { [weak self] in
+                    self?.gotCameraAccess = granted
+                    completion(granted)
+                }
+            }
+        case .denied:
+            completion(false)
+            showOpenSettingsForCamera()
+        case .restricted:
+            completion(false)
+        @unknown default:
+            completion(false)
+        }
+    }
+    
+    private func requestMicrophoneAccess(completion: @escaping((_ granted: Bool) -> Void)) {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+        
+        switch authStatus {
+        case .authorized:
+            gotMicrophoneAccess = true
+            completion(true)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .audio) { granted in
+                DispatchQueue.main.async { [weak self] in
+                    self?.gotMicrophoneAccess = granted
+                    completion(granted)
+                }
+            }
+        case .denied:
+            completion(false)
+            showOpenSettingsForMicrophone()
+        case .restricted:
+            completion(false)
+        @unknown default:
+            completion(false)
+        }
+    }
+    
+    private func saveVideoToAlbum(album: PHAssetCollection?, fileUrl url: URL) {
+        var albumRequest: PHAssetCollectionChangeRequest?
+        var placeholder: PHObjectPlaceholder?
+        PHPhotoLibrary.shared().performChanges({
+            let request = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+            if let album = album {
+                albumRequest = PHAssetCollectionChangeRequest(for: album)
+            }
+            placeholder = request?.placeholderForCreatedAsset
+            if let placeholder = placeholder, let albumRequest = albumRequest {
+                albumRequest.addAssets([placeholder] as NSFastEnumeration)
+            }
+        }, completionHandler: { [weak self] (success, error) in
+            if success {
+                if let id = placeholder?.localIdentifier {
+                    let fetchResult =  PHAsset.fetchAssets(withLocalIdentifiers: [id], options: nil)
+                    if let asset = fetchResult.firstObject {
+                        DispatchQueue.main.async {
+                            // TODO:
+                        }
+                    }
+                }
+            } else if let error = error {
+                print(error)
+            }
+        })
+    }
+
+//    public func imagePickerController(
+//        _ picker: UIImagePickerController,
+//        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+//    ) {
+//
+//        DispatchQueue.main.async { [weak self] in
+//            if let mediaUrl = info[.mediaURL] as? URL {
+//                self?.sendVideo(from: mediaUrl)
+//            }
+//            picker.dismiss(animated: true)
+//        }
+//    }
+
+    private func showOpenSettingsForGallery() {
+        let message = NSLocalizedString("""
+            We need access to you photo and video gallery to process your video. \
+            Please provide access to the gallery in the settings.
+            """, comment: "")
+//        showOpenSettings(message: message)
+    }
+    
+    private func showOpenSettingsForCamera() {
+        let message = NSLocalizedString("""
+            We need access to the camera so you can capture video to process. \
+            Please provide access to the camera in the settings.
+            """, comment: "")
+//        showOpenSettings(message: message)
+    }
+    
+    private func showOpenSettingsForMicrophone() {
+        let message = NSLocalizedString("""
+            We need access to the microphone for capturing shoot sounds on video. \
+            Please provide access to the microphone in the settings.
+            """, comment: "")
+//        showOpenSettings(message: message)
     }
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

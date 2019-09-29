@@ -20,8 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>Allow to record video</string>
+	    <key>NSCameraUsageDescription</key>
+    <string>We need access to the camera for capturing video</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need access to the microphone for capturing sounds on video.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to the photo and video gallery so you can process your video.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-SemiBold.ttf</string>
