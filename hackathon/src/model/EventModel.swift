@@ -40,6 +40,7 @@ struct EventModel {
     let matchTime: Int
     let videoTime: Int?
     let player: PlayerModel?
+    let videos: [VideoModel]
 
     static func model(from json: [String: Any]) -> EventModel {
         return EventModel(
@@ -48,7 +49,8 @@ struct EventModel {
             realTime: EventModel.timeFormatter.date(from: json["real_time"] as! String)!,
             matchTime: json["match_time"] as! Int,
             videoTime: json["video_time"] as? Int,
-            player: PlayerModel.model(from: json["player"] as? [String: Any])
+            player: PlayerModel.model(from: json["player"] as? [String: Any]),
+            videos: (json["videos"] as? [[String: Any]])?.map { VideoModel.model(from: $0) } ?? []
         )
     }
 

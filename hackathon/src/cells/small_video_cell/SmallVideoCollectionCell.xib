@@ -20,7 +20,27 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usH-Ud-vYY">
                         <rect key="frame" x="0.0" y="0.0" width="144" height="216"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zo8-5q-mKq">
+                                <rect key="frame" x="0.0" y="0.0" width="144" height="216"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_video_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="LmQ-DV-BLs">
+                                <rect key="frame" x="0.0" y="184" width="144" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="YXW-Mj-ijh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LmQ-DV-BLs" firstAttribute="leading" secondItem="usH-Ud-vYY" secondAttribute="leading" id="7h4-LA-FRE"/>
+                            <constraint firstItem="Zo8-5q-mKq" firstAttribute="leading" secondItem="usH-Ud-vYY" secondAttribute="leading" id="F5V-FE-0am"/>
+                            <constraint firstAttribute="trailing" secondItem="Zo8-5q-mKq" secondAttribute="trailing" id="W7L-yk-k6H"/>
+                            <constraint firstAttribute="bottom" secondItem="Zo8-5q-mKq" secondAttribute="bottom" id="WO4-9p-KhE"/>
+                            <constraint firstItem="Zo8-5q-mKq" firstAttribute="top" secondItem="usH-Ud-vYY" secondAttribute="top" id="XMr-sw-N9Y"/>
+                            <constraint firstAttribute="trailing" secondItem="LmQ-DV-BLs" secondAttribute="trailing" id="nh3-Yq-Ism"/>
+                            <constraint firstAttribute="bottom" secondItem="LmQ-DV-BLs" secondAttribute="bottom" id="z3L-lk-xKw"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="8"/>
@@ -45,10 +65,14 @@
                 <constraint firstAttribute="bottom" secondItem="3Sj-NA-5IE" secondAttribute="bottom" constant="8" id="cyB-mC-EXc"/>
             </constraints>
             <size key="customSize" width="144" height="216"/>
+            <connections>
+                <outlet property="backgroundImage" destination="Zo8-5q-mKq" id="5FE-zP-dq0"/>
+            </connections>
             <point key="canvasLocation" x="205.79710144927537" y="206.25"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="play_small_icon" width="20" height="20"/>
+        <image name="small_video_gradient" width="70" height="31"/>
     </resources>
 </document>
