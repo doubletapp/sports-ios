@@ -41,7 +41,7 @@ class SendVideoViewController: UIViewController {
         ),
         TableViewCellDescription(
             cellType: ChooseEventCell.self,
-            object: ChooseEventCellData(time: "33'", title: "Штраф Семенов")
+            object: ChooseEventCellData(time: "33'", title: "Штрафной Семенов")
         ),
     ]
 
