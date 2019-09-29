@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nwO-SQ-iIf" customClass="HighlightPreviewCell" customModule="hackathon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDj-7k-QBO" userLabel="Card View">
+                        <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivn-G9-6Vt" userLabel="Preview Background">
+                                <rect key="frame" x="0.0" y="0.0" width="135" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5G-OE-TIi" userLabel="Gradient View" customClass="GradientView" customModule="hackathon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="135" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="o9T-MZ-Qru"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tZe-V4-Kmh" userLabel="First Team Logo">
+                                <rect key="frame" x="15" y="119" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="GGL-0u-0Vf"/>
+                                    <constraint firstAttribute="height" constant="30" id="UeS-Df-bOe"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIZ-Xj-M3a" userLabel="Second Team Logo">
+                                <rect key="frame" x="90" y="119" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ldi-we-s5f"/>
+                                    <constraint firstAttribute="width" constant="30" id="gBW-04-FJk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjw-r3-mN0">
+                                <rect key="frame" x="49" y="123.5" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0039215686274509803" green="0.59999999999999998" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tZe-V4-Kmh" firstAttribute="leading" secondItem="ZDj-7k-QBO" secondAttribute="leading" constant="15" id="C3b-wP-SaE"/>
+                            <constraint firstItem="eIZ-Xj-M3a" firstAttribute="leading" secondItem="Yjw-r3-mN0" secondAttribute="trailing" constant="4" id="DDy-mk-Sf1"/>
+                            <constraint firstItem="Yjw-r3-mN0" firstAttribute="leading" secondItem="tZe-V4-Kmh" secondAttribute="trailing" constant="4" id="OFk-fj-PjP"/>
+                            <constraint firstAttribute="trailing" secondItem="R5G-OE-TIi" secondAttribute="trailing" id="WaW-mp-Qcf"/>
+                            <constraint firstItem="Yjw-r3-mN0" firstAttribute="centerY" secondItem="tZe-V4-Kmh" secondAttribute="centerY" id="YW6-bp-KvX"/>
+                            <constraint firstAttribute="bottom" secondItem="R5G-OE-TIi" secondAttribute="bottom" id="YsD-9b-KoX"/>
+                            <constraint firstAttribute="trailing" secondItem="eIZ-Xj-M3a" secondAttribute="trailing" constant="15" id="euz-VP-P7W"/>
+                            <constraint firstAttribute="bottom" secondItem="tZe-V4-Kmh" secondAttribute="bottom" constant="16" id="sCh-SY-3i0"/>
+                            <constraint firstItem="R5G-OE-TIi" firstAttribute="leading" secondItem="ZDj-7k-QBO" secondAttribute="leading" id="uKa-G1-bu7"/>
+                            <constraint firstAttribute="bottom" secondItem="eIZ-Xj-M3a" secondAttribute="bottom" constant="16" id="woH-R1-cWm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ZDj-7k-QBO" firstAttribute="bottom" secondItem="nwO-SQ-iIf" secondAttribute="bottom" id="e0S-pW-6Jk"/>
+                <constraint firstAttribute="top" secondItem="ZDj-7k-QBO" secondAttribute="top" id="eVX-mc-lp1"/>
+                <constraint firstAttribute="trailing" secondItem="ZDj-7k-QBO" secondAttribute="trailing" id="tWh-VH-aJx"/>
+                <constraint firstAttribute="leading" secondItem="ZDj-7k-QBO" secondAttribute="leading" id="vU6-tz-sYO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="kI3-uC-YAo"/>
+            <size key="customSize" width="91" height="186"/>
+            <connections>
+                <outlet property="backgroundPreview" destination="ivn-G9-6Vt" id="IlY-qY-1DN"/>
+                <outlet property="firstTeamLogo" destination="tZe-V4-Kmh" id="JmQ-7m-bMi"/>
+                <outlet property="gradientView" destination="R5G-OE-TIi" id="Mzg-0o-4Yo"/>
+                <outlet property="scoreLabel" destination="Yjw-r3-mN0" id="IyG-EI-N0f"/>
+                <outlet property="secondTeamLogo" destination="eIZ-Xj-M3a" id="xcJ-Ze-MhI"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="74.665178571428569"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -74,5 +74,9 @@ extension UIColor {
     open class var lightGray: UIColor {
         return UIColor(netHex: 0xFFFFFF, alpha: 0.3)
     }
+    
+    open class var backgroundGray: UIColor {
+        return UIColor(netHex: 0xF9F9F9)
+    }
 }
 
