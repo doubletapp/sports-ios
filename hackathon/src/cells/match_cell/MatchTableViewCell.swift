@@ -39,7 +39,8 @@ extension MatchTableViewCell: BaseTableViewCell {
         formatter.dateFormat = "MMMM dd"
         matchTimeLabel.text = formatter.string(from: match.startDateTime)
         liveTimeLabel.text = match.minute
-        liveRoundedView.isHidden = match.minute.isEmpty
+        liveTimeLabel.isHidden = match.minute.isEmpty || match.status != .live
+        liveRoundedView.isHidden = match.status != .live
         if let firstLogoUrl = URL(string: match.homeTeam.logo) {
             firstTeamLogo.af_setImage(withURL: firstLogoUrl)
         }

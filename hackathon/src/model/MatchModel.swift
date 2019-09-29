@@ -20,6 +20,7 @@ struct MatchModel {
     let status: MatchStatus
     let minute: String
     let events: [EventModel]
+    let otherVideos: [VideoModel]
 
     static func models(from json: [String: Any]) -> [MatchModel] {
         var models = [MatchModel]()
@@ -39,7 +40,8 @@ struct MatchModel {
             awayTeam: TeamModel.model(from: json["away_team"] as! [String: Any]),
             status: (json["status"] as? String).map { MatchStatus(rawValue: $0) ?? .notStarted } ?? .notStarted,
             minute: json["minute"] as? String ?? "",
-            events: (json["events"] as? [[String: Any]])?.map { EventModel.model(from: $0) } ?? []
+            events: (json["events"] as? [[String: Any]])?.map { EventModel.model(from: $0) } ?? [],
+            otherVideos: (json["other_videos"] as? [[String: Any]])?.map { VideoModel.model(from: $0) } ?? []
         )
     }
 

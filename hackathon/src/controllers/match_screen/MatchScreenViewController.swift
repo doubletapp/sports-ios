@@ -26,61 +26,9 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        liveLabelView.isHidden = matchModel.minute.isEmpty
-        timeLabel.isHidden = matchModel.minute.isEmpty
+        liveLabelView.isHidden = matchModel.status != .live
+        timeLabel.isHidden = matchModel.minute.isEmpty || matchModel.status != .live
         timeLabel.text = matchModel.minute
-
-//        = [
-//            TableViewCellDescription(
-//                cellType: ProfileMatchCell.self,
-//                object: ProfileMatchCellObject(expanded: false, match: matchModel, delegate: nil)
-//            ),
-//            TableViewCellDescription(
-//                cellType: HeaderCell.self,
-//                object: HeaderCellObject(title: "Таймлайн")
-//            ),
-//            TableViewCellDescription(
-//                cellType: EventCell.self,
-//                object: EventCellObject(
-//                    time: "56'",
-//                    playerAvatar: "",
-//                    eventName: "Гол",
-//                    playerName: "Дмитров",
-//                    first: true,
-//                    last: false
-//                )
-//            ),
-//            TableViewCellDescription(
-//                cellType: VideosCell.self,
-//                object: VideosCellObject()
-//            ),
-//            TableViewCellDescription(
-//                cellType: EventCell.self,
-//                object: EventCellObject(
-//                    time: "56'",
-//                    playerAvatar: "",
-//                    eventName: "Гол",
-//                    playerName: "Дмитров",
-//                    first: false,
-//                    last: false
-//                )
-//            ),
-//            TableViewCellDescription(
-//                cellType: VideosCell.self,
-//                object: VideosCellObject()
-//            ),
-//            TableViewCellDescription(
-//                cellType: EventCell.self,
-//                object: EventCellObject(
-//                    time: "56'",
-//                    playerAvatar: "",
-//                    eventName: "Гол",
-//                    playerName: "Дмитров",
-//                    first: false,
-//                    last: true
-//                )
-//            ),
-//        ]
 
         updateData()
     }
@@ -88,16 +36,38 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
     func updateData() {
         cellDescriptions = []
 
-        let headerCellDescriptions = [
+
+        var headerCellDescriptions = [TableViewCellDescription]()
+
+        headerCellDescriptions.append(
             TableViewCellDescription(
                 cellType: ProfileMatchCell.self,
                 object: ProfileMatchCellObject(expanded: false, match: matchModel, delegate: nil)
-            ),
+            )
+        )
+        if matchModel.otherVideos.count > 0 {
+            headerCellDescriptions.append(
+                TableViewCellDescription(
+                    cellType: HeaderCell.self,
+                    object: HeaderCellObject(title: "Другие видео")
+                )
+            )
+
+            headerCellDescriptions.append(
+                TableViewCellDescription(
+                    cellType: VideosCell.self,
+                    object: VideosCellObject(videos: matchModel.otherVideos, isLast: true)
+                )
+            )
+        }
+
+
+        headerCellDescriptions.append(
             TableViewCellDescription(
                 cellType: HeaderCell.self,
                 object: HeaderCellObject(title: "Таймлайн")
-            ),
-        ]
+            )
+        )
 
         let eventsCellDescriptions = matchModel.events.enumerated().map { el -> [TableViewCellDescription]  in
             let event = el.1
@@ -119,7 +89,7 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
             if event.videos.count > 0 {
                 let videosCell = TableViewCellDescription(
                     cellType: VideosCell.self,
-                    object: VideosCellObject(videos: event.videos)
+                    object: VideosCellObject(videos: event.videos, isLast: index == matchModel.events.count - 1)
                 )
 
                 cells.append(videosCell)

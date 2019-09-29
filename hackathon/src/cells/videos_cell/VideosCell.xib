@@ -19,14 +19,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lc-H8-8lZ">
-                        <rect key="frame" x="39" y="0.0" width="1" height="115.5"/>
+                        <rect key="frame" x="40" y="0.0" width="1" height="115.5"/>
                         <color key="backgroundColor" red="0.81960784313725488" green="0.85490196078431369" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="8tz-DM-n5F"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yQa-tR-gL6">
-                        <rect key="frame" x="75" y="13" width="339" height="90"/>
+                        <rect key="frame" x="76" y="13" width="338" height="90"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="rf6-dJ-s8p"/>
@@ -43,7 +43,7 @@
                     <constraint firstItem="5Lc-H8-8lZ" firstAttribute="top" secondItem="WKZ-Gi-xTv" secondAttribute="top" id="Kug-wQ-QOF"/>
                     <constraint firstAttribute="trailing" secondItem="yQa-tR-gL6" secondAttribute="trailing" id="Ltz-KX-1KL"/>
                     <constraint firstItem="yQa-tR-gL6" firstAttribute="leading" secondItem="5Lc-H8-8lZ" secondAttribute="trailing" constant="35" id="ReS-D0-GIP"/>
-                    <constraint firstItem="5Lc-H8-8lZ" firstAttribute="leading" secondItem="WKZ-Gi-xTv" secondAttribute="leading" constant="39" id="XVL-XA-5bs"/>
+                    <constraint firstItem="5Lc-H8-8lZ" firstAttribute="leading" secondItem="WKZ-Gi-xTv" secondAttribute="leading" constant="40" id="XVL-XA-5bs"/>
                     <constraint firstItem="yQa-tR-gL6" firstAttribute="height" secondItem="WKZ-Gi-xTv" secondAttribute="height" priority="999" constant="-15" id="gJO-RM-D6d"/>
                     <constraint firstItem="yQa-tR-gL6" firstAttribute="centerY" secondItem="WKZ-Gi-xTv" secondAttribute="centerY" id="ogD-gZ-RvP"/>
                     <constraint firstAttribute="bottom" secondItem="5Lc-H8-8lZ" secondAttribute="bottom" id="vuw-Lp-18z"/>
@@ -52,6 +52,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="yQa-tR-gL6" id="hR4-HG-Pm7"/>
+                <outlet property="timelineView" destination="5Lc-H8-8lZ" id="ZTJ-LX-L52"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="174.77678571428569"/>
         </tableViewCell>

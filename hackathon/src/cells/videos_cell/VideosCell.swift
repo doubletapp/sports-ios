@@ -3,6 +3,7 @@ import UIKit
 
 struct VideosCellObject {
     let videos: [VideoModel]
+    let isLast: Bool
 }
 
 class VideosCell: UITableViewCell {
@@ -14,41 +15,17 @@ class VideosCell: UITableViewCell {
             collectionView.dataSource = self
         }
     }
+    @IBOutlet weak var timelineView: UIView!
 
     var cellDescriptions: [CollectionViewCellDescription] = []
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//        CollectionViewCellDescription(
-//            cellType: SmallVideoCollectionCell.self,
-//            object: nil
-//        ),
-//    ]
-
-
 }
 
 extension VideosCell: BaseTableViewCell {
 
     func configure(for object: Any?) {
         guard let cellObject = object as? VideosCellObject else { return }
+
+        timelineView.isHidden = cellObject.isLast
 
         cellDescriptions = cellObject.videos.map {
             CollectionViewCellDescription(
