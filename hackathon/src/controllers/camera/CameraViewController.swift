@@ -150,7 +150,7 @@ class CameraViewController: UIViewController {
     func getNewFileURL() -> URL {
         return FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent(UUID().uuidString)
+            .appendingPathComponent(UUID().uuidString).appendingPathExtension("MOV")
     }
     
     func sendVideo(from url: URL) {

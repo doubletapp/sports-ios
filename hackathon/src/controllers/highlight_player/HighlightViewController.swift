@@ -19,6 +19,7 @@ class HighlightViewController: UIViewController {
     @IBOutlet weak var pushView: UIView! {
         didSet {
             pushView.layer.cornerRadius = 15
+            pushView.isHidden = true
         }
     }
     
@@ -41,6 +42,8 @@ class HighlightViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         highlightView.player?.play()
+        let event = EventModel(id: 0, type: .offside, realTime: Date(), matchTime: 46, videoTime: 34, player: PlayerModel(lastName: "Су-тор-мин", avatar: "https://commons.wikimedia.org/wiki/File:Cel-Zen_(15)_(cropped).jpg"))
+        showEvent(event)
     }
     
     @IBAction func didTapClose() {
@@ -49,6 +52,31 @@ class HighlightViewController: UIViewController {
     
     func showEvent(_ event: EventModel) {
         timeLabel.text = "\(event.matchTime)'"
-        timeLabel
+        eventLabel.text = event.type.name
+        if let player = event.player {
+            performerLabel.text = player.lastName
+            performerLabel.isHidden = false
+            if let avatarUrl = URL(string: player.avatar ?? "") {
+                performerImage.af_setImage(withURL: avatarUrl)
+                performerImage.isHidden = false
+            } else {
+                performerImage.isHidden = true
+            }
+        } else {
+            performerImage.isHidden = true
+            performerLabel.isHidden = true
+        }
+        
+        var pushFrame = pushView.frame
+        let pushFrameOrigin = pushFrame
+        pushFrame.origin.y = 0 - pushFrame.height
+        pushView.frame = pushFrame
+        pushView.layer.opacity = 0.0
+        pushView.isHidden = false
+        
+        UIView.animate(withDuration: 1.5) {
+            self.pushView.frame = pushFrameOrigin
+            self.pushView.layer.opacity = 1.0
+        }
     }
 }
