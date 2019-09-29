@@ -99,10 +99,13 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
             ),
         ]
 
-        let eventsCellDescriptions = matchModel.events.enumerated().map { el -> TableViewCellDescription  in
+        let eventsCellDescriptions = matchModel.events.enumerated().map { el -> [TableViewCellDescription]  in
             let event = el.1
             let index = el.0
-            return TableViewCellDescription(
+
+            var cells = [TableViewCellDescription]()
+
+            let eventCell = TableViewCellDescription(
                 cellType: EventCell.self,
                 object: EventCellObject(
                     event: event,
@@ -110,11 +113,24 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
                     last: index == matchModel.events.count - 1
                 )
             )
+
+            cells.append(eventCell)
+
+            if event.videos.count > 0 {
+                let videosCell = TableViewCellDescription(
+                    cellType: VideosCell.self,
+                    object: VideosCellObject(videos: event.videos)
+                )
+
+                cells.append(videosCell)
+            }
+
+            return cells
         }
 
 
         cellDescriptions.append(contentsOf: headerCellDescriptions)
-        cellDescriptions.append(contentsOf: eventsCellDescriptions)
+        cellDescriptions.append(contentsOf: eventsCellDescriptions.flatMap { $0 })
         
         tableView.reloadData()
     }

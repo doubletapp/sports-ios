@@ -70,7 +70,7 @@ class HighlightViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         highlightView.player?.play()
-        let event = EventModel(id: 0, type: .offside, realTime: Date(), matchTime: 46, videoTime: 34, player: PlayerModel(lastName: "Су-тор-мин", avatar: "https://commons.wikimedia.org/wiki/File:Cel-Zen_(15)_(cropped).jpg"))
+        let event = EventModel(id: 0, type: .offside, realTime: Date(), matchTime: 46, videoTime: 34, player: PlayerModel(lastName: "Су-тор-мин", avatar: "https://commons.wikimedia.org/wiki/File:Cel-Zen_(15)_(cropped).jpg"), videos: [])
         showEvent(event)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

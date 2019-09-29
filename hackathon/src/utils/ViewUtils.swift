@@ -77,5 +77,46 @@ extension UIView {
     func removeSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
+
+    func showLoading() {
+        let loaderView = LoaderView()
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(loaderView)
+
+        loaderView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        loaderView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        loaderView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        loaderView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        loaderView.alpha = 0
+
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.0,
+            options: .transitionCrossDissolve,
+            animations: {
+                loaderView.alpha = 1.0
+            },
+            completion: nil
+        )
+    }
+
+    func hideLoading() {
+        for subview in subviews {
+            if let loader = subview as? LoaderView {
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0.0,
+                    options: .transitionCrossDissolve,
+                    animations: {
+                        loader.alpha = 0.0
+                    },
+                    completion: { result in
+                        loader.removeFromSuperview()
+                    }
+                )
+            }
+        }
+    }
     
 }

@@ -17,7 +17,8 @@ class UploadVideoRequest: BaseRequest {
         super.init()
 
         parameters["start_real_time"] = UploadVideoRequest.datetimeFormatter.string(from: startRealmTime)
-        parameters["duration"] = Int(duration)
+        parameters["duration"] = String(Int(duration))
+        parameters["match"] = String(matchId)
 
         path = "/videos/"
     }

@@ -20,6 +20,8 @@ class BaseRequest: IBaseRequest {
 
         var innerHeaders: [String: String] = [:]
 
+        innerHeaders["authentication"] = UIDevice.current.identifierForVendor!.uuidString
+
         return innerHeaders
     }()
 
