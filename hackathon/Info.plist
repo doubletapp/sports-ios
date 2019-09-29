@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Ze Lights</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,12 +22,17 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	    <key>NSCameraUsageDescription</key>
-    <string>We need access to the camera for capturing video</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>We need access to the microphone for capturing sounds on video.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>We need access to the photo and video gallery so you can process your video.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to the camera for capturing video</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to the microphone for capturing sounds on video.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to the photo and video gallery so you can process your video.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-SemiBold.ttf</string>
@@ -51,10 +58,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>
