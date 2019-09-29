@@ -42,6 +42,27 @@ extension AppDelegate {
             }
         }
     }
+    
+    func topViewController(base: UIViewController?) -> UIViewController? {
+        let base = base ?? window?.rootViewController
+
+        if let nav = base as? UINavigationController {
+            if let visible = nav.visibleViewController {
+                return topViewController(base: visible)
+            } else {
+                return nav
+            }
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
+    }
 }
 
 

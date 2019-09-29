@@ -52,8 +52,6 @@ class SendVideoViewController: UIViewController {
         
         if let url = videoUrl {
 
-            let asset = AVAsset(url: url)
-
             let playerItem = AVPlayerItem(url: url)
             videoContainer.player = AVPlayer(playerItem: playerItem)
             NotificationCenter.default.addObserver(
