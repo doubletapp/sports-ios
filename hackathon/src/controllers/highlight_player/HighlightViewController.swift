@@ -4,6 +4,8 @@ import UIKit
 
 class HighlightViewController: UIViewController {
 
+    var pushAnimating = false
+    var shouldHidePush = true
     var highlight: HighlightModel!
     var highlightView: HighlightView {
         return view as! HighlightView
@@ -31,12 +33,38 @@ class HighlightViewController: UIViewController {
             performerImage.layer.cornerRadius = 15
         }
     }
+    @IBOutlet weak var pusherView: UIView! {
+        didSet {
+            pusherView.layer.cornerRadius = 2.0
+        }
+    }
+    @IBOutlet weak var popupHeader: UIView! {
+        didSet {
+            let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanPopup(_:)))
+            popupHeader.addGestureRecognizer(panRecognizer)
+        }
+    }
+    @IBOutlet weak var bottomViewHeightConstriaint: NSLayoutConstraint!
+    @IBOutlet weak var firstTeamLogo: UIImageView!
+    @IBOutlet weak var secondTeamLogo: UIImageView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let playerItem = AVPlayerItem(url: URL(string: highlight.videoUrl)!)
         highlightView.player = AVPlayer(playerItem: playerItem)
+        if let firstTeamUrl = URL(string: highlight.match.homeTeam.logo) {
+            firstTeamLogo.af_setImage(withURL: firstTeamUrl)
+        }
+        if let secondTeamUrl = URL(string: highlight.match.awayTeam.logo) {
+            secondTeamLogo.af_setImage(withURL: secondTeamUrl)
+        }
+        scoreLabel.text = "\(highlight.match.homeTeam.score) - \(highlight.match.awayTeam.score)"
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +72,10 @@ class HighlightViewController: UIViewController {
         highlightView.player?.play()
         let event = EventModel(id: 0, type: .offside, realTime: Date(), matchTime: 46, videoTime: 34, player: PlayerModel(lastName: "Су-тор-мин", avatar: "https://commons.wikimedia.org/wiki/File:Cel-Zen_(15)_(cropped).jpg"))
         showEvent(event)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.showEvent(event)
+        }
     }
     
     @IBAction func didTapClose() {
@@ -73,10 +105,60 @@ class HighlightViewController: UIViewController {
         pushView.frame = pushFrame
         pushView.layer.opacity = 0.0
         pushView.isHidden = false
+        if pushAnimating {
+            shouldHidePush = false
+        }
+        pushAnimating = true
         
         UIView.animate(withDuration: 1.5) {
             self.pushView.frame = pushFrameOrigin
             self.pushView.layer.opacity = 1.0
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+            if !self.shouldHidePush {
+                self.shouldHidePush = true
+                return
+            }
+            UIView.animate(withDuration: 1.5, animations: {
+                self.pushView.frame = pushFrame
+                self.pushView.layer.opacity = 0.0
+            }, completion: { completed in
+                self.pushView.frame = pushFrameOrigin
+                self.pushView.layer.opacity = 1.0
+                self.pushView.isHidden = true
+                self.pushAnimating = false
+            })
+        }
     }
+    
+    @objc func didPanPopup(_ recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: view)
+        var newContstant = bottomViewHeightConstriaint.constant - translation.y
+        if newContstant < 60.0 {
+            newContstant = 60.0
+        }
+        if newContstant > UIScreen.main.bounds.height - 160.0 {
+            newContstant = UIScreen.main.bounds.height - 160.0
+        }
+        bottomViewHeightConstriaint.constant = newContstant
+        recognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
+    }
+}
+
+extension HighlightViewController: UITableViewDelegate {
+
+}
+
+extension HighlightViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return highlight.events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+
 }
