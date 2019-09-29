@@ -26,7 +26,7 @@ class CameraViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var galleryButton: UIButton!
+//    @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBOutlet weak var cameraContainer: UIView!
 
@@ -79,7 +79,6 @@ class CameraViewController: UIViewController {
             switchCameraButton.isHidden = true
             startRecording = Date()
 //            galleryButton.isHidden = true
-            galleryButton.isHidden = true
         } else {
             stillVideoOutput?.stopRecording()
             isRecording = false
@@ -87,7 +86,6 @@ class CameraViewController: UIViewController {
             switchCameraButton.isHidden = false
             stopRecording = Date()
 //            galleryButton.isHidden = false
-            galleryButton.isHidden = false
         }
     }
 

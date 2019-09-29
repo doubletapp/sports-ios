@@ -142,8 +142,8 @@ class SendVideoViewController: UIViewController {
             matchId: match.id,
             startRealmTime: startRecordingDate!,
             duration: stopRecordingDate!.timeIntervalSince1970 - startRecordingDate!.timeIntervalSince1970
-        ).request { any, error in
-            print("hello")
+        ).request { [weak self] any, error in
+            self?.closeDelegate?.close()
         }
     }
 
