@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LKp-Gs-bZb">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Player Screen View Controller-->
+        <scene sceneID="EYu-k8-Nwb">
+            <objects>
+                <viewController id="LKp-Gs-bZb" customClass="VideoPlayerScreenViewController" customModule="hackathon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0M-Vh-TdH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SvR-CF-vU6" customClass="VideoContainerView" customModule="hackathon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xf2-5m-Kdt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv2-2n-iXI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bl-RU-vQP" userLabel="Play Button">
+                                        <rect key="frame" x="177" y="418" width="60" height="60"/>
+                                        <state key="normal" image="play_icon"/>
+                                        <connections>
+                                            <action selector="didTapPlay" destination="LKp-Gs-bZb" eventType="touchUpInside" id="fhv-tB-417"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xf2-5m-Kdt" firstAttribute="leading" secondItem="SvR-CF-vU6" secondAttribute="leading" id="4K3-cT-JGn"/>
+                                    <constraint firstItem="5bl-RU-vQP" firstAttribute="centerY" secondItem="SvR-CF-vU6" secondAttribute="centerY" id="7Ux-3A-sJ3"/>
+                                    <constraint firstAttribute="bottom" secondItem="xf2-5m-Kdt" secondAttribute="bottom" id="PEA-lg-w4S"/>
+                                    <constraint firstItem="tv2-2n-iXI" firstAttribute="bottom" secondItem="xf2-5m-Kdt" secondAttribute="bottom" id="ZQc-fY-Tu7"/>
+                                    <constraint firstItem="xf2-5m-Kdt" firstAttribute="top" secondItem="SvR-CF-vU6" secondAttribute="top" id="cJf-o2-IS5"/>
+                                    <constraint firstItem="tv2-2n-iXI" firstAttribute="trailing" secondItem="xf2-5m-Kdt" secondAttribute="trailing" id="d68-5g-tru"/>
+                                    <constraint firstItem="5bl-RU-vQP" firstAttribute="centerX" secondItem="SvR-CF-vU6" secondAttribute="centerX" id="jcZ-FA-Vmo"/>
+                                    <constraint firstItem="tv2-2n-iXI" firstAttribute="top" secondItem="xf2-5m-Kdt" secondAttribute="top" id="jpy-Nb-0xy"/>
+                                    <constraint firstAttribute="trailing" secondItem="xf2-5m-Kdt" secondAttribute="trailing" id="wKd-VC-Fvd"/>
+                                    <constraint firstItem="tv2-2n-iXI" firstAttribute="leading" secondItem="xf2-5m-Kdt" secondAttribute="leading" id="zEU-Aa-l6d"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNb-WT-qxi">
+                                <rect key="frame" x="347" y="24" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="seD-Jy-c20"/>
+                                    <constraint firstAttribute="height" constant="60" id="vN3-oa-G0g"/>
+                                </constraints>
+                                <state key="normal" image="close_icon"/>
+                                <connections>
+                                    <action selector="closeAction" destination="LKp-Gs-bZb" eventType="touchUpInside" id="aaH-KX-9Xe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="top" secondItem="NNb-WT-qxi" secondAttribute="top" constant="-24" id="d4a-ux-hoo"/>
+                            <constraint firstAttribute="trailing" secondItem="SvR-CF-vU6" secondAttribute="trailing" id="fze-oo-h4W"/>
+                            <constraint firstAttribute="bottom" secondItem="SvR-CF-vU6" secondAttribute="bottom" id="jj5-he-Ojh"/>
+                            <constraint firstItem="SvR-CF-vU6" firstAttribute="top" secondItem="N0M-Vh-TdH" secondAttribute="top" id="kZo-tb-P99"/>
+                            <constraint firstItem="nSj-c8-bR1" firstAttribute="trailing" secondItem="NNb-WT-qxi" secondAttribute="trailing" constant="7" id="oKp-gd-G1A"/>
+                            <constraint firstItem="SvR-CF-vU6" firstAttribute="leading" secondItem="N0M-Vh-TdH" secondAttribute="leading" id="yHB-9C-mC4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nSj-c8-bR1"/>
+                    </view>
+                    <connections>
+                        <outlet property="imagePreviewContainer" destination="xf2-5m-Kdt" id="nuR-YS-I9H"/>
+                        <outlet property="loaderContainer" destination="tv2-2n-iXI" id="Z0i-TM-aJd"/>
+                        <outlet property="playButton" destination="5bl-RU-vQP" id="omw-d9-VQh"/>
+                        <outlet property="videoContainer" destination="SvR-CF-vU6" id="pY1-Rq-XjD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5AS-d5-Qz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="80"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close_icon" width="30" height="30"/>
+        <image name="play_icon" width="60" height="60"/>
+    </resources>
+</document>

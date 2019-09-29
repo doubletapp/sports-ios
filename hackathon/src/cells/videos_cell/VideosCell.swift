@@ -4,6 +4,7 @@ import UIKit
 struct VideosCellObject {
     let videos: [VideoModel]
     let isLast: Bool
+    weak var delegate: SmallVideoCollectionCellDelegate?
 }
 
 class VideosCell: UITableViewCell {
@@ -30,7 +31,7 @@ extension VideosCell: BaseTableViewCell {
         cellDescriptions = cellObject.videos.map {
             CollectionViewCellDescription(
                 cellType: SmallVideoCollectionCell.self,
-                object: SmallVideoCollectionCellObject(video: $0)
+                object: SmallVideoCollectionCellObject(video: $0, delegate: cellObject.delegate)
             )
         }
 

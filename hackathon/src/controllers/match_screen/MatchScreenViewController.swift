@@ -61,7 +61,7 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
             headerCellDescriptions.append(
                 TableViewCellDescription(
                     cellType: VideosCell.self,
-                    object: VideosCellObject(videos: matchModel.otherVideos, isLast: true)
+                    object: VideosCellObject(videos: matchModel.otherVideos, isLast: true, delegate: self)
                 )
             )
         }
@@ -94,7 +94,7 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
             if event.videos.count > 0 {
                 let videosCell = TableViewCellDescription(
                     cellType: VideosCell.self,
-                    object: VideosCellObject(videos: event.videos, isLast: index == matchModel.events.count - 1)
+                    object: VideosCellObject(videos: event.videos, isLast: index == matchModel.events.count - 1, delegate: self)
                 )
 
                 cells.append(videosCell)
@@ -102,7 +102,6 @@ class MatchScreenViewController: UIViewController, CloseScreenDelegate, MatchSou
 
             return cells
         }
-
 
         cellDescriptions.append(contentsOf: headerCellDescriptions)
         cellDescriptions.append(contentsOf: eventsCellDescriptions.flatMap { $0 })
@@ -154,3 +153,21 @@ extension MatchScreenViewController: UITableViewDataSource {
     }
 }
 
+extension MatchScreenViewController: SmallVideoCollectionCellDelegate {
+
+    func selectVideo(video: VideoModel) {
+        let vc = UIStoryboard(name: "VideoPlayer", bundle: nil).instantiateInitialViewController() as! VideoPlayerScreenViewController
+        vc.delegate = self
+        vc.videoModel = video
+        present(vc, animated: true)
+    }
+
+}
+
+
+extension MatchScreenViewController: VideoPlayerScreenDelegate {
+
+    func closeVideo() {
+        dismiss(animated: true)
+    }
+}
