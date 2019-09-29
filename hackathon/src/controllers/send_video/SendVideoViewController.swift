@@ -137,6 +137,8 @@ class SendVideoViewController: UIViewController {
 
         guard let match = matchSourceDelegate?.getMatch() else { return }
 
+        view.showLoading()
+
         UploadVideoRequest(
             data: data,
             matchId: match.id,
