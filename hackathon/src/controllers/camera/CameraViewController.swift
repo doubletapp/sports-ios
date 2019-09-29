@@ -7,6 +7,10 @@ protocol CloseScreenDelegate: class {
     func close()
 }
 
+protocol MatchSourceDelegate: class {
+    func getMatch() -> MatchModel
+}
+
 extension CloseScreenDelegate where Self: UIViewController {
 
     func close() {
@@ -27,6 +31,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var cameraContainer: UIView!
 
     weak var closeDelegate: CloseScreenDelegate?
+    weak var matchSourceDelegate: MatchSourceDelegate?
 
     var session: AVCaptureSession?
     var stillVideoOutput: AVCaptureMovieFileOutput?
@@ -34,6 +39,9 @@ class CameraViewController: UIViewController {
 
     var isBackCamera = true
     var isRecording = false
+
+    var startRecording: Date?
+    var stopRecording: Date?
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -65,12 +73,14 @@ class CameraViewController: UIViewController {
             isRecording = true
             recordButton.isSelected = true
             switchCameraButton.isHidden = true
+            startRecording = Date()
 //            galleryButton.isHidden = true
         } else {
             stillVideoOutput?.stopRecording()
             isRecording = false
             recordButton.isSelected = false
             switchCameraButton.isHidden = false
+            stopRecording = Date()
 //            galleryButton.isHidden = false
         }
     }
@@ -151,7 +161,7 @@ class CameraViewController: UIViewController {
     func getNewFileURL() -> URL {
         return FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent(UUID().uuidString)
+            .appendingPathComponent(UUID().uuidString).appendingPathExtension("mp4")
     }
     
     func sendVideo(from url: URL) {
@@ -159,6 +169,9 @@ class CameraViewController: UIViewController {
             let vc = UIStoryboard(name: "SendVideo", bundle: nil).instantiateInitialViewController() as! SendVideoViewController
             vc.videoUrl = url
             vc.closeDelegate = self?.closeDelegate
+            vc.startRecordingDate = self?.startRecording
+            vc.stopRecordingDate = self?.stopRecording
+            vc.matchSourceDelegate = self?.matchSourceDelegate
             self?.present(vc, animated: true)
         }
     }

@@ -24,7 +24,11 @@ class SendVideoViewController: UIViewController {
     var isPlaying: Bool = false
 
     weak var closeDelegate: CloseScreenDelegate?
+    weak var matchSourceDelegate: MatchSourceDelegate?
+
     var videoUrl: URL?
+    var startRecordingDate: Date?
+    var stopRecordingDate: Date?
 
     var cellDescriptions: [TableViewCellDescription] = [
         TableViewCellDescription(
@@ -104,6 +108,58 @@ class SendVideoViewController: UIViewController {
         isPlaying = false
         UIView.animate(withDuration: 0.8) {
             self.playButton.layer.opacity = 1.0
+        }
+    }
+
+    @IBAction func sendAction() {
+        var data: [UploadData] = []
+
+        if let image = createThumbnailOfVideoFromFileURL(videoURL: videoUrl!.absoluteString),
+           let imageData = image.jpegData(compressionQuality: 0.9) {
+            data.append(
+                UploadData(
+                    data: imageData,
+                    key: "preview", 
+                    filename: "preview.jpg", 
+                    mimeType: "image/jpeg"
+                )
+            )
+        }
+
+        if let videoData = try? Data(contentsOf: videoUrl!) {
+            data.append(
+                UploadData(
+                    data: videoData,
+                    key: "video",
+                    filename: "video.mp4",
+                    mimeType: "video/mp4"
+                )
+            )
+        }
+
+        guard let match = matchSourceDelegate?.getMatch() else { return }
+
+        UploadVideoRequest(
+            data: data,
+            matchId: match.id,
+            startRealmTime: startRecordingDate!,
+            duration: stopRecordingDate!.timeIntervalSince1970 - startRecordingDate!.timeIntervalSince1970
+        ).request { any, error in
+            print("hello")
+        }
+    }
+
+    func createThumbnailOfVideoFromFileURL(videoURL: String) -> UIImage? {
+        let asset = AVAsset(url: URL(string: videoURL)!)
+        let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+        assetImgGenerate.appliesPreferredTrackTransform = true
+        let time = CMTimeMakeWithSeconds(Float64(1), preferredTimescale: 100)
+        do {
+            let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: img)
+            return thumbnail
+        } catch {
+            return nil
         }
     }
 }

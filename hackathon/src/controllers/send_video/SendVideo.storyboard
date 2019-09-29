@@ -72,6 +72,9 @@
                                                 <real key="value" value="27"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendAction" destination="b3X-wM-yAq" eventType="touchUpInside" id="nWY-P8-qDR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
