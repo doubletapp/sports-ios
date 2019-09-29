@@ -19,7 +19,7 @@ class UploadVideoRequest: BaseRequest {
         parameters["start_real_time"] = UploadVideoRequest.datetimeFormatter.string(from: startRealmTime)
         parameters["duration"] = Int(duration)
 
-        path = "/video/"
+        path = "/videos/"
     }
 
     override func request(_ callback: @escaping (Any?, Error?) -> Void) {
