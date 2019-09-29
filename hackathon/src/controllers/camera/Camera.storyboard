@@ -55,7 +55,7 @@
                                             <action selector="recordingAction" destination="OFH-K5-THV" eventType="touchUpInside" id="5ez-eg-tFU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-GO-VZM">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-GO-VZM">
                                         <rect key="frame" x="47" y="45" width="50" height="50"/>
                                         <state key="normal" image="gallery_icon"/>
                                         <connections>
@@ -100,7 +100,6 @@
                     <connections>
                         <outlet property="cameraContainer" destination="1dS-dM-YzK" id="NVi-KM-efy"/>
                         <outlet property="closeButton" destination="d3q-OB-x9M" id="ss8-Ic-d3e"/>
-                        <outlet property="galleryButton" destination="Jd1-GO-VZM" id="6Zt-3w-mfD"/>
                         <outlet property="recordButton" destination="1TO-RX-o4t" id="xhe-6j-Lrp"/>
                         <outlet property="switchCameraButton" destination="Keg-OS-Jbc" id="OWw-NY-uRb"/>
                     </connections>

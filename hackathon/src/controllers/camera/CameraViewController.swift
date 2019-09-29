@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Photos
 
 protocol CloseScreenDelegate: class {
     func close()
@@ -21,7 +22,7 @@ class CameraViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var galleryButton: UIButton!
+//    @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var switchCameraButton: UIButton!
     @IBOutlet weak var cameraContainer: UIView!
 
@@ -64,13 +65,13 @@ class CameraViewController: UIViewController {
             isRecording = true
             recordButton.isSelected = true
             switchCameraButton.isHidden = true
-            galleryButton.isHidden = true
+//            galleryButton.isHidden = true
         } else {
             stillVideoOutput?.stopRecording()
             isRecording = false
             recordButton.isSelected = false
             switchCameraButton.isHidden = false
-            galleryButton.isHidden = false
+//            galleryButton.isHidden = false
         }
     }
 
@@ -79,7 +80,7 @@ class CameraViewController: UIViewController {
         pickerController.delegate = self
         pickerController.allowsEditing = true
         pickerController.mediaTypes = [ "public.movie" ]
-        pickerController.sourceType = .savedPhotosAlbum
+        pickerController.sourceType = .photoLibrary
 
         present(pickerController, animated: true)
     }
